@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import App from './App';
-import MovieList from './routes/MovieList/MovieList';
+import Movies from './routes/Movies/Movies';
 import ActionList from './routes/Action/Action';
 import Action from './routes/Action/ActionURL';
 import ComedyList from './routes/Comedy/Comedy';
@@ -13,7 +13,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        <Route path="List" element={<MovieList />} />
+        <Route path="Movies" element={<Movies />} />
         <Route path="Action" element={<ActionList />} >
           <Route path=":ActionId" element={<Action />} />
         </Route>

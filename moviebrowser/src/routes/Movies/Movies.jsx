@@ -1,13 +1,14 @@
 import { Link, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import MovieList from "../../routes/MovieList/MovieList";
+import './Movies.css';
 
-const GetTrending = () => {
+const Movies = () => {
 
     const API_URL = 'https://api.themoviedb.org/3';
     const [trending, setTrending] = useState([]);
     const [trendingGenre, setTrendingGenre] = useState([]);
+    const [updates, setUpdates] = useState([]);
     const [pendingTrending, setPendingTrending] = useState(false);
     const imgPath = "https://image.tmdb.org/t/p/w1280";
 
@@ -20,7 +21,7 @@ const GetTrending = () => {
             },
         });
 
-        db.get('/trending/movie/week?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&total_results=20', { cache: 'reload' })
+        db.get('/trending/movie/week?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false', { cache: 'reload' })
             .then((res) => {
                 //settrending(JSON.stringify(res.data.results));
                 setTrending(res.data.results);
@@ -37,20 +38,32 @@ const GetTrending = () => {
             })
 
     }, []);
-    console.log(trending);
+
+    console.log(trending, trendingGenre)
+
     if (pendingTrending === true) {
         return (
-
-            <section>
-                <MovieList trending={trending} trendingGenre={trendingGenre} imgPath={imgPath} pendingTrending={pendingTrending} />
-
-
-            </section>
+            <main className="trending-list">
+                {trending.map((list) =>
+                    <figure>
+                        <img className="poster" src={imgPath + list.poster_path} />
+                        <figcaption>{list.original_title}</figcaption>
+                    </figure>
+                )}
+            </main>
         )
     }
-    else {
-        <p>Something went wrong</p>
-    }
+    else return (
+        <p>NOPE</p>
+    )
+
+
 };
 
-export default GetTrending;
+
+
+
+
+
+
+export default Movies;
