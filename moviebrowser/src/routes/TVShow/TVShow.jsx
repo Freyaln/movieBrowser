@@ -1,9 +1,7 @@
-import { Link, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import './Movies.css';
-
-const Movies = () => {
+import './TVShow.css';
+const TVShow = () => {
 
     const API_URL = 'https://api.themoviedb.org/3';
     const [trending, setTrending] = useState([]);
@@ -22,7 +20,7 @@ const Movies = () => {
             },
         });
 
-        db.get('/trending/movie/week?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&page=1', { cache: 'reload' })
+        db.get('/tv/popular?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&page=1', { cache: 'reload' })
             .then((res) => {
                 //settrending(JSON.stringify(res.data.results));
                 setTrending(res.data.results);
@@ -32,7 +30,7 @@ const Movies = () => {
                 console.log(error)
             })
 
-        db.get('/trending/movie/week?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&page=2', { cache: 'reload' })
+        db.get('/tv/popular?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&page=2', { cache: 'reload' })
             .then((res) => {
                 //settrending(JSON.stringify(res.data.results));
                 setTrending2(res.data.results);
@@ -42,7 +40,7 @@ const Movies = () => {
                 console.log(error)
             })
 
-        db.get('/trending/movie/week?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&page=3', { cache: 'reload' })
+        db.get('/tv/popular?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&page=3', { cache: 'reload' })
             .then((res) => {
                 //settrending(JSON.stringify(res.data.results));
                 setTrending3(res.data.results);
@@ -52,11 +50,6 @@ const Movies = () => {
                 console.log(error)
             })
 
-
-        db.get('/genre/movie/list?&api_key=4d1a84bd8e2f776949378aaece646762&language=en-US', { cache: 'reload' })
-            .then((res) => {
-                setTrendingGenre(res.data.genres);
-            })
 
     }, []);
 
@@ -84,10 +77,4 @@ const Movies = () => {
 
 };
 
-
-
-
-
-
-
-export default Movies;
+export default TVShow;

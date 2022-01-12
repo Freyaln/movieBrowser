@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import App from './App';
+import TVShow from './routes/TVShow/TVShow';
 import Movies from './routes/Movies/Movies';
 import ActionList from './routes/Action/Action';
 import Action from './routes/Action/ActionURL';
@@ -13,6 +14,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
+        <Route path="TVShow" element={<TVShow />}></Route>
         <Route path="Movies" element={<Movies />} />
         <Route path="Action" element={<ActionList />} >
           <Route path=":ActionId" element={<Action />} />
