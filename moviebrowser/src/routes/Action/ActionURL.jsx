@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
-import { GetMovieList } from "../../data";
 
-export default function Action() {
+export default function ActionURL() {
     let params = useParams();
 
     return (

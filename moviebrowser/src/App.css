@@ -93,7 +93,7 @@ article nav.navbar ul li ul li {
 }
 
 article nav.navbar ul li ul li a:hover {
-  padding-left: 10px;
+  padding-left: 5px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }

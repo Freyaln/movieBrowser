@@ -26,7 +26,7 @@ function App() {
               <li><Link to="/Mystery" className='link'>Mystery</Link>  {" "}</li>
               <li><Link to="/Romance" className='link'>Romance</Link>  {" "}</li>
               <li><Link to="/Science-fiction" className='link'>Science-fiction</Link>  {" "}</li>
-              <li><Link to="/TV Movie" className='link'>TV Movie</Link>  {" "}</li>
+              <li><Link to="/TV" className='link'>TV</Link>  {" "}</li>
               <li><Link to="/Thriller" className='link'>Thriller</Link>  {" "}</li>
               <li><Link to="/War" className='link'>War</Link>  {" "}</li>
               <li><Link to="/Western" className='link'>Western</Link>  {" "}</li>

@@ -59,13 +59,13 @@ const TVShow = () => {
         return (
             <main className="trending-list">
                 {trending.map((list) =>
-                    <img className="poster" src={imgPath + list.poster_path} />
+                    <img key={list.id} className="poster" src={imgPath + list.poster_path} />
                 )}
                 {trending2.map((list) =>
-                    <img className="poster" src={imgPath + list.poster_path} />
+                    <img key={list.id} className="poster" src={imgPath + list.poster_path} />
                 )}
                 {trending3.map((list) =>
-                    <img className="poster" src={imgPath + list.poster_path} />
+                    <img key={list.id} className="poster" src={imgPath + list.poster_path} />
                 )}
             </main>
         )
