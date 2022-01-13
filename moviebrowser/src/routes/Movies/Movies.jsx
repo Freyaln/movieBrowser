@@ -1,7 +1,7 @@
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
+import { ImageList, ImageListItem } from '@mui/material';
 import './Movies.css';
 
 const Movies = () => {
@@ -62,9 +62,9 @@ const Movies = () => {
     if (pendingTrending === true) {
         return (
             <main className="trending-list">
-                <div className="hr-list">
+                <section className="movie-list">
                     <h2>Trending now</h2>
-                    <ImageList sx={{ width: 500, height: 150 }} cols={20} rowHeight={160}>
+                    <ImageList sx={{ width: 500, height: 175 }} cols={20} rowHeight={180}>
                         {trending.map((list) =>
                             <ImageListItem key={list.id}>
                                 <Link to={`/MovieCard/${list.id}`} key={list.id}>
@@ -74,7 +74,7 @@ const Movies = () => {
                         )}
                     </ImageList>
                     <h2>Top action movies</h2>
-                    <ImageList sx={{ width: 500, height: 150 }} cols={20} rowHeight={160}>
+                    <ImageList sx={{ width: 500, height: 180 }} cols={20} rowHeight={180}>
                         {requestAction.map((list) =>
                             <ImageListItem key={list.id}>
                                 <img className="poster" src={imgPath + list.poster_path} />
@@ -82,7 +82,7 @@ const Movies = () => {
                         )}
                     </ImageList>
                     <h2>Top romance movies</h2>
-                    <ImageList sx={{ width: 500, height: 150 }} cols={20} rowHeight={160}>
+                    <ImageList sx={{ width: 500, height: 180 }} cols={20} rowHeight={180}>
                         {requestRomance.map((list) =>
                             <ImageListItem key={list.id}>
                                 <img className="poster" src={imgPath + list.poster_path} />
@@ -90,15 +90,15 @@ const Movies = () => {
                         )}
                     </ImageList>
                     <h2>Top anime movies</h2>
-                    <ImageList sx={{ width: 500, height: 150 }} cols={20} rowHeight={160}>
+                    <ImageList sx={{ width: 500, height: 180 }} cols={20} rowHeight={180}>
                         {requestAnime.map((list) =>
                             <ImageListItem key={list.id}>
                                 <img className="poster" src={imgPath + list.poster_path} />
                             </ImageListItem>
                         )}
                     </ImageList>
-                </div>
-            </main>
+                </section>
+            </main >
         )
     }
     else return (

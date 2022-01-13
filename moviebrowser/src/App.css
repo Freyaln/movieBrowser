@@ -82,6 +82,7 @@ article nav.navbar ul li ul:hover {
   -webkit-transform: translateX(-10rem);
           transform: translateX(-10rem);
   font-size: 0.6rem;
+  z-index: 100;
 }
 
 article nav.navbar ul li ul li {

@@ -6,14 +6,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: first baseline;
-      -ms-flex-pack: first baseline;
-          justify-content: first baseline;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   gap: 0rem;
   width: 100%;
   height: 100%;
@@ -22,13 +16,17 @@
   overflow: hidden;
 }
 
-.trending-list .hr-list h2 {
+.trending-list .movie-list {
+  z-index: 0;
+}
+
+.trending-list .movie-list h2 {
   color: white;
   margin-left: 1rem;
   font-size: 1.2rem;
 }
 
-.trending-list .hr-list .poster {
+.trending-list .movie-list .poster {
   width: 6.5rem;
   height: 10rem;
   margin-left: 1rem;

@@ -7,7 +7,7 @@ const MovieCard = () => {
 
     let { MovieId } = useParams();
     let id = parseInt({ MovieId }.MovieId, 10);
-    const API_URL = 'https://api.themoviedb.org/3';
+    const API_URL = 'https://api.themoviedb.org/3/movie/${id}?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US';
     const [requestMovie, setRequestMovie] = useState([]);
     const [pendingMovie, setPendingMovie] = useState(false);
     const imgPath = "https://image.tmdb.org/t/p/w1280";
