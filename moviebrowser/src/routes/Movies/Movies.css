@@ -19,9 +19,16 @@
   height: 100%;
   -webkit-column-count: 2;
           column-count: 2;
+  overflow: hidden;
 }
 
-.trending-list .poster {
+.trending-list .hr-list h2 {
+  color: white;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+
+.trending-list .hr-list .poster {
   width: 6.5rem;
   height: 10rem;
   margin-left: 1rem;

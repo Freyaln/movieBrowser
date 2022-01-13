@@ -1,17 +1,19 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
 import './Movies.css';
 
 const Movies = () => {
 
     const API_URL = 'https://api.themoviedb.org/3';
+    const [requestAction, setRequestAction] = useState([]);
+    const [requestRomance, setRequestRomance] = useState([]);
+    const [requestAnime, setRequestAnime] = useState([]);
     const [trending, setTrending] = useState([]);
-    const [trending2, setTrending2] = useState([]);
-    const [trending3, setTrending3] = useState([]);
-    const [trendingGenre, setTrendingGenre] = useState([]);
     const [pendingTrending, setPendingTrending] = useState(false);
     const imgPath = "https://image.tmdb.org/t/p/w1280";
+
 
     useEffect(() => {
         const db = axios.create({
@@ -24,7 +26,6 @@ const Movies = () => {
 
         db.get('/trending/movie/week?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&page=1', { cache: 'reload' })
             .then((res) => {
-                //settrending(JSON.stringify(res.data.results));
                 setTrending(res.data.results);
                 setPendingTrending(true);
             })
@@ -32,48 +33,71 @@ const Movies = () => {
                 console.log(error)
             })
 
-        db.get('/trending/movie/week?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&page=2', { cache: 'reload' })
+        db.get(`/discover/movie?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28`, { cache: 'reload' })
             .then((res) => {
-                //settrending(JSON.stringify(res.data.results));
-                setTrending2(res.data.results);
-                setPendingTrending(true);
+                setRequestAction(res.data.results);
             })
             .catch((error) => {
                 console.log(error)
             })
 
-        db.get('/trending/movie/week?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&page=3', { cache: 'reload' })
+        db.get(`/discover/movie?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=10749`, { cache: 'reload' })
             .then((res) => {
-                //settrending(JSON.stringify(res.data.results));
-                setTrending3(res.data.results);
-                setPendingTrending(true);
+                setRequestRomance(res.data.results);
             })
             .catch((error) => {
                 console.log(error)
             })
 
-
-        db.get('/genre/movie/list?&api_key=4d1a84bd8e2f776949378aaece646762&language=en-US', { cache: 'reload' })
+        db.get(`/discover/movie?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16`, { cache: 'reload' })
             .then((res) => {
-                setTrendingGenre(res.data.genres);
+                setRequestAnime(res.data.results);
+            })
+            .catch((error) => {
+                console.log(error)
             })
 
     }, []);
 
-    console.log(trending, trendingGenre)
-
     if (pendingTrending === true) {
         return (
             <main className="trending-list">
-                {trending.map((list) =>
-                    <img key={list.id} className="poster" src={imgPath + list.poster_path} />
-                )}
-                {trending2.map((list) =>
-                    <img key={list.id} className="poster" src={imgPath + list.poster_path} />
-                )}
-                {trending3.map((list) =>
-                    <img key={list.id} className="poster" src={imgPath + list.poster_path} />
-                )}
+                <div className="hr-list">
+                    <h2>Trending now</h2>
+                    <ImageList sx={{ width: 500, height: 150 }} cols={20} rowHeight={160}>
+                        {trending.map((list) =>
+                            <ImageListItem key={list.id}>
+                                <Link to={`/MovieCard/${list.id}`} key={list.id}>
+                                    <img className="poster" src={imgPath + list.poster_path} />
+                                </Link>
+                            </ImageListItem>
+                        )}
+                    </ImageList>
+                    <h2>Top action movies</h2>
+                    <ImageList sx={{ width: 500, height: 150 }} cols={20} rowHeight={160}>
+                        {requestAction.map((list) =>
+                            <ImageListItem key={list.id}>
+                                <img className="poster" src={imgPath + list.poster_path} />
+                            </ImageListItem>
+                        )}
+                    </ImageList>
+                    <h2>Top romance movies</h2>
+                    <ImageList sx={{ width: 500, height: 150 }} cols={20} rowHeight={160}>
+                        {requestRomance.map((list) =>
+                            <ImageListItem key={list.id}>
+                                <img className="poster" src={imgPath + list.poster_path} />
+                            </ImageListItem>
+                        )}
+                    </ImageList>
+                    <h2>Top anime movies</h2>
+                    <ImageList sx={{ width: 500, height: 150 }} cols={20} rowHeight={160}>
+                        {requestAnime.map((list) =>
+                            <ImageListItem key={list.id}>
+                                <img className="poster" src={imgPath + list.poster_path} />
+                            </ImageListItem>
+                        )}
+                    </ImageList>
+                </div>
             </main>
         )
     }

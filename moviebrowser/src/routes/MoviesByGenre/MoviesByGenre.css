@@ -1,4 +1,4 @@
-.western-list {
+.trending-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,7 +21,7 @@
           column-count: 2;
 }
 
-.western-list .poster {
+.trending-list .poster {
   width: 6.5rem;
   height: 10rem;
   margin-left: 1rem;

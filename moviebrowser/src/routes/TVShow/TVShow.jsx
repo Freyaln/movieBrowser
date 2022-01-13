@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
+import { ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
 import './TVShow.css';
 const TVShow = () => {
 
     const API_URL = 'https://api.themoviedb.org/3';
     const [trending, setTrending] = useState([]);
-    const [trending2, setTrending2] = useState([]);
-    const [trending3, setTrending3] = useState([]);
-    const [trendingGenre, setTrendingGenre] = useState([]);
+    const [requestTopRated, setRequestTopRated] = useState([]);
     const [pendingTrending, setPendingTrending] = useState(false);
     const imgPath = "https://image.tmdb.org/t/p/w1280";
 
@@ -22,7 +22,6 @@ const TVShow = () => {
 
         db.get('/tv/popular?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&page=1', { cache: 'reload' })
             .then((res) => {
-                //settrending(JSON.stringify(res.data.results));
                 setTrending(res.data.results);
                 setPendingTrending(true);
             })
@@ -30,20 +29,9 @@ const TVShow = () => {
                 console.log(error)
             })
 
-        db.get('/tv/popular?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&page=2', { cache: 'reload' })
+        db.get('/tv/top_rated?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&page=1', { cache: 'reload' })
             .then((res) => {
-                //settrending(JSON.stringify(res.data.results));
-                setTrending2(res.data.results);
-                setPendingTrending(true);
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-
-        db.get('/tv/popular?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&page=3', { cache: 'reload' })
-            .then((res) => {
-                //settrending(JSON.stringify(res.data.results));
-                setTrending3(res.data.results);
+                setRequestTopRated(res.data.results);
                 setPendingTrending(true);
             })
             .catch((error) => {
@@ -53,20 +41,29 @@ const TVShow = () => {
 
     }, []);
 
-    console.log(trending, trendingGenre)
+    console.log(trending)
 
     if (pendingTrending === true) {
         return (
             <main className="trending-list">
-                {trending.map((list) =>
-                    <img key={list.id} className="poster" src={imgPath + list.poster_path} />
-                )}
-                {trending2.map((list) =>
-                    <img key={list.id} className="poster" src={imgPath + list.poster_path} />
-                )}
-                {trending3.map((list) =>
-                    <img key={list.id} className="poster" src={imgPath + list.poster_path} />
-                )}
+                <div className="hr-list">
+                    <h2>Trending now</h2>
+                    <ImageList sx={{ width: 500, height: 150 }} cols={20} rowHeight={160}>
+                        {trending.map((list) =>
+                            <ImageListItem key={list.id}>
+                                <Link to={`/TVShowCard/${list.id}`}> <img key={list.id} className="poster" src={imgPath + list.poster_path} /></Link>
+                            </ImageListItem>
+                        )}
+                    </ImageList>
+                    <h2>Top rated shows</h2>
+                    <ImageList sx={{ width: 500, height: 150 }} cols={20} rowHeight={160}>
+                        {requestTopRated.map((list) =>
+                            <ImageListItem key={list.id}>
+                                <img key={list.id} className="poster" src={imgPath + list.poster_path} />
+                            </ImageListItem>
+                        )}
+                    </ImageList>
+                </div>
             </main>
         )
     }

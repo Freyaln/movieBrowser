@@ -8,13 +8,27 @@
     width: 100%;
     height: 100%;
     column-count: 2;
+    overflow: hidden;
 
-    .poster {
-        width: 6.5rem;
-        height: 10rem;
-        margin-left: 1rem;
-        margin-bottom: 1rem;
-        padding: 0;
+
+    .hr-list {
+
+        h2 {
+            color: white;
+            margin-left: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .poster {
+            width: 6.5rem;
+            height: 10rem;
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+            padding: 0;
+    
+        }
 
     }
+
+    
 }

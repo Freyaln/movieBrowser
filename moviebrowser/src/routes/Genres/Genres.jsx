@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
+import { Outlet, Link, useParams } from "react-router-dom";
 import axios from "axios";
+import './Genres.css';
 
-const Action = () => {
+const Genre = () => {
 
     const API_URL = 'https://api.themoviedb.org/3';
-    const [action, setAction] = useState([]);
-    const [action2, setAction2] = useState([]);
+    const [requestGenre, setRequestGenre] = useState([])
     const [pending, setPending] = useState(false);
-    const imgPath = "https://image.tmdb.org/t/p/w1280";
 
     useEffect(() => {
         const db = axios.create({
@@ -18,51 +18,38 @@ const Action = () => {
             },
         });
 
-        db.get('/discover/movie?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28', { cache: 'reload' })
+        db.get('/genre/movie/list?&api_key=4d1a84bd8e2f776949378aaece646762&language=en-US', { cache: 'reload' })
             .then((res) => {
-                setAction(res.data.results);
+                setRequestGenre(res.data.genres);
                 setPending(true);
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-
-        db.get('/discover/movie?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=2&with_genres=28', { cache: 'reload' })
-            .then((res) => {
-                setAction2(res.data.results);
-                setPending(true);
-            })
-            .catch((error) => {
-                console.log(error)
             })
 
     }, []);
 
-    console.log(action)
 
     if (pending === true) {
         return (
-            <main className="action-list">
-                {action.map((list) =>
-                    <img key={list.id} className="poster" src={imgPath + list.poster_path} />
-                )}
-                {action2.map((list) =>
-                    <img key={list.id} className="poster" src={imgPath + list.poster_path} />
-                )}
-            </main>
+            <div>
+                <nav className='navbar'>
+                    <ul>
+                        <li><Link to="/TVShow" className='link'>TV Shows</Link>  {" "}</li>
+                        <li><Link to="/Movies" className='link'>Movies</Link></li>
+                        <li className='genres'>Categories
+                            <ul className='submenu-content'>
+                                {requestGenre.map((list) =>
+                                    <li key={list.id}><Link to={`MoviesByGenre/${list.id}`} key={list.id} className="link">{list.name}</Link></li>
+                                )}
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         )
     }
-    else return (
-        <p>NOPE</p>
-    )
-
+    else {
+        return <p> Nope </p>
+    }
 
 };
 
-
-
-
-
-
-
-export default Action;
+export default Genre;
