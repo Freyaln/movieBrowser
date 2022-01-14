@@ -102,7 +102,7 @@ const Movies = () => {
         )
     }
     else return (
-        <p>NOPE</p>
+        <p>Loading... </p>
     )
 
 

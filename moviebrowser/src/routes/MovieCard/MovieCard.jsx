@@ -7,32 +7,35 @@ const MovieCard = () => {
 
     let { MovieId } = useParams();
     let id = parseInt({ MovieId }.MovieId, 10);
-    const API_URL = 'https://api.themoviedb.org/3/movie/${id}?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US';
+    const API_URL = 'https://api.themoviedb.org/3';
     const [requestMovie, setRequestMovie] = useState([]);
     const [pendingMovie, setPendingMovie] = useState(false);
     const imgPath = "https://image.tmdb.org/t/p/w1280";
 
-    useEffect(() => {
+    useEffect(async () => {
+
         const db = axios.create({
             baseURL: API_URL,
-            timeout: 1000,
+            timeout: 2000,
             validateStatus: function (status) {
                 return status >= 200 && status < 300;
             },
         });
 
-        db.get(`/movie/${id}?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US`, { cache: 'reload' })
+        await db.get(`/movie/${id}?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US`, { cache: 'reload' })
             .then((res) => {
-                setRequestMovie(res.data.results);
+                setRequestMovie(res.data);
+                console.log(res.data.results);
                 setPendingMovie(true);
             })
             .catch((error) => {
                 console.log(error)
             })
 
-        console.log(requestMovie, id);
 
-    }, [id]);
+        console.log(requestMovie, id, pendingMovie);
+
+    }, []);
 
     if (pendingMovie === true) {
         return (
@@ -45,9 +48,11 @@ const MovieCard = () => {
             </main>
         )
     }
-    else return (
-        <p>NOPE</p>
-    )
+    else {
+        return (
+            <p>Loading</p>
+        )
+    }
 
 
 };

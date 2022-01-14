@@ -47,7 +47,7 @@ const Genre = () => {
         )
     }
     else {
-        return <p> Nope </p>
+        return <p>Loading ...</p>
     }
 
 };

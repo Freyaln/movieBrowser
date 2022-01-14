@@ -45,10 +45,10 @@ const TVShow = () => {
 
     if (pendingTrending === true) {
         return (
-            <main className="trending-list">
+            <main className="show-list">
                 <div className="hr-list">
                     <h2>Trending now</h2>
-                    <ImageList sx={{ width: 500, height: 150 }} cols={20} rowHeight={160}>
+                    <ImageList sx={{ width: 500, height: 180 }} cols={20} rowHeight={180}>
                         {trending.map((list) =>
                             <ImageListItem key={list.id}>
                                 <Link to={`/TVShowCard/${list.id}`}> <img key={list.id} className="poster" src={imgPath + list.poster_path} /></Link>
@@ -56,10 +56,10 @@ const TVShow = () => {
                         )}
                     </ImageList>
                     <h2>Top rated shows</h2>
-                    <ImageList sx={{ width: 500, height: 150 }} cols={20} rowHeight={160}>
+                    <ImageList sx={{ width: 500, height: 180 }} cols={20} rowHeight={180}>
                         {requestTopRated.map((list) =>
                             <ImageListItem key={list.id}>
-                                <img key={list.id} className="poster" src={imgPath + list.poster_path} />
+                                <Link to={`/TVShowCard/${list.id}`}> <img key={list.id} className="poster" src={imgPath + list.poster_path} /></Link>
                             </ImageListItem>
                         )}
                     </ImageList>
@@ -68,7 +68,7 @@ const TVShow = () => {
         )
     }
     else return (
-        <p>NOPE</p>
+        <p>Loading... </p>
     )
 
 
