@@ -4,18 +4,24 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import App from './App';
 import TVShow from './routes/TVShow/TVShow';
+import ShowCard from './routes/ShowCard/ShowCard';
+import ShowCardFetch from './components/FetchShow';
 import MovieCard from './routes/MovieCard/MovieCard';
 import Movies from './routes/Movies/Movies';
 import MoviesByGenre from './routes/MoviesByGenre/MoviesByGenre';
 import Genres from './routes/Genres/Genres';
 import reportWebVitals from './reportWebVitals';
+import MovieCardFetch from './components/FetchMovie';
 
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
         <Route path="TVShow/" element={<TVShow />} />
-        <Route path="MovieCard/:MovieId" element={<MovieCard />} />
+        <Route path="ShowCard" element={<ShowCard />} />
+        <Route path="FetchShow/:ShowId" element={<ShowCardFetch />} />
+        <Route path="MovieCard" element={<MovieCard />} />
+        <Route path="FetchMovie/:MovieId" element={<MovieCardFetch />} />
         <Route path="Movies" element={<Movies />} />
         <Route path="Genres/:GenresId" element={<Genres />} />
         <Route path="MoviesByGenre/:GenresId" element={<MoviesByGenre />} />

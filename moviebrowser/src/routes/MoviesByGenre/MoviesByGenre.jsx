@@ -33,16 +33,19 @@ const MoviesByGenre = () => {
         console.log(id);
 
     }, [id]);
+    console.log(requestGenre)
 
     if (pendingGenre === true) {
         return (
-            <main className="trending-list">
+            <div className="trending-list">
                 {requestGenre.map((list) =>
                     <Link to={`/MovieCard/${list.id}`} key={list.id}>
-                        <img key={list.id} className="poster" src={imgPath + list.poster_path} />
+                        <Link to={`/FetchMovie/${list.id}`} key={list.id}>
+                            <img key={list.id} className="poster" src={imgPath + list.poster_path} />
+                        </Link>
                     </Link>
                 )}
-            </main>
+            </div>
         )
     }
     else return (

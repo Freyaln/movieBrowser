@@ -7,7 +7,10 @@ function App() {
     <article>
       <h1>Netfrix</h1>
       <Genre />
-      <Outlet />
+      <main className='format'>
+
+        <Outlet />
+      </main>
     </article >
   );
 }

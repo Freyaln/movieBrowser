@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Outlet, Link, useParams } from "react-router-dom";
 import axios from "axios";
+import Movies from "../Movies/Movies";
 import './Genres.css';
 
 const Genre = () => {

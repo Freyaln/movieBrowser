@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
 import './TVShow.css';
+import ShowCardFetch from "../../components/FetchShow";
+
 const TVShow = () => {
 
     const API_URL = 'https://api.themoviedb.org/3';
@@ -51,7 +53,10 @@ const TVShow = () => {
                     <ImageList sx={{ width: 500, height: 180 }} cols={20} rowHeight={180}>
                         {trending.map((list) =>
                             <ImageListItem key={list.id}>
-                                <Link to={`/TVShowCard/${list.id}`}> <img key={list.id} className="poster" src={imgPath + list.poster_path} /></Link>
+                                <Link to={`/FetchShow/${list.id}`}>
+                                    <img key={list.id} className="poster" src={imgPath + list.poster_path} />
+                                </Link>
+
                             </ImageListItem>
                         )}
                     </ImageList>
@@ -59,12 +64,15 @@ const TVShow = () => {
                     <ImageList sx={{ width: 500, height: 180 }} cols={20} rowHeight={180}>
                         {requestTopRated.map((list) =>
                             <ImageListItem key={list.id}>
-                                <Link to={`/TVShowCard/${list.id}`}> <img key={list.id} className="poster" src={imgPath + list.poster_path} /></Link>
+                                <Link to={`/FetchShow/${list.id}`}>
+                                    <img key={list.id} className="poster" src={imgPath + list.poster_path} />
+                                </Link>
+
                             </ImageListItem>
                         )}
                     </ImageList>
                 </div>
-            </main>
+            </main >
         )
     }
     else return (
