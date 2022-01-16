@@ -7,11 +7,22 @@ body {
 
 article {
 
+  .placement {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
     h1{
         color: red;
         font-family: ubuntu;
         margin: 0;
     }
+
+    .tmdb-logo {
+      max-width: 5rem;
+    }
+  }
 
     nav {
         &.navbar {

@@ -5,19 +5,19 @@ const ShowCard = (props) => {
 
     const imgPath = "https://image.tmdb.org/t/p/w1280";
     return (
-        <div className="movie-details">
-            <section className='movie'>
+        <div className="show-details">
+            <section className='show'>
 
-                <img className="poster" src={imgPath + props.requestShowPoster} alt={props.requestShowTitle} />
-                <div className='post'>
+                <img className="show-poster" src={imgPath + props.requestShowPoster} alt={props.requestShowTitle} />
+                <div className='show-genre'>
                     <h4>Genres : </h4>
-                    <ul className='genres-list'>
+                    <ul className='show-genres-list'>
                         {props.requestShowGenres.map((list) =>
                             <li key={list.id}>{list.name}</li>)}
                     </ul>
                 </div>
                 <h5>Synopsis</h5>
-                <p className='synopsis'>{props.requestShowSynopsis}</p>
+                <p className='show-synopsis'>{props.requestShowSynopsis}</p>
             </section>
         </div>
     )

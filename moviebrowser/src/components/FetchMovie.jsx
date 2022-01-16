@@ -13,6 +13,7 @@ const MovieCardFetch = () => {
     const [requestMoviePoster, setRequestMoviePoster] = useState([]);
     const [requestMovieGenres, setRequestMovieGenres] = useState([]);
     const [requestMovieSynopsis, setRequestMovieSynopsis] = useState([]);
+    const [requestMovieVote, setRequestMovieVote] = useState([]);
     const [requestMovieId, setRequestMovieId] = useState([]);
     const [pendingMovie, setPendingMovie] = useState(false);
     const imgPath = "https://image.tmdb.org/t/p/w1280";
@@ -33,6 +34,7 @@ const MovieCardFetch = () => {
                 setRequestMoviePoster([res.data.poster_path]);
                 setRequestMovieGenres(res.data.genres);
                 setRequestMovieSynopsis([res.data.overview]);
+                setRequestMovieVote([res.data.vote_average]);
                 setRequestMovieId([res.data.id]);
                 setPendingMovie(true);
             })
@@ -51,6 +53,7 @@ const MovieCardFetch = () => {
         return (
             <MovieCard
                 requestMoviePoster={requestMoviePoster}
+                requestMovieVote={requestMovieVote}
                 requestMovieTitle={requestMovieTitle}
                 requestMovieGenres={requestMovieGenres}
                 requestMovieSynopsis={requestMovieSynopsis}

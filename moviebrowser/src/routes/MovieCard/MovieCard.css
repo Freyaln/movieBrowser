@@ -1,67 +1,44 @@
 .movie-details {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (15rem)[3];
+      grid-template-rows: repeat(3, 15rem);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   max-height: 50rem;
   max-width: 20rem;
 }
 
-.movie-details .movie {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  gap: 3rem;
-  margin-top: 2rem;
+.movie-details .movie-poster {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 2;
+  max-width: 10rem;
+  height: 15rem;
+  margin-bottom: 0;
 }
 
-.movie-details .movie .poster {
-  max-width: auto;
-  height: 20rem;
+.movie-details .movie-rating-genre {
+  margin-left: 1rem;
 }
 
-.movie-details .movie .post {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.movie-details .movie .post h4 {
+.movie-details .movie-rating-genre h4 {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 3;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 2;
   color: white;
 }
 
-.movie-details .movie .post .genres-list {
+.movie-details .movie-rating-genre .movie-genres-list {
   list-style: none;
   max-width: 20rem;
   -webkit-column-count: 2;
@@ -71,14 +48,22 @@
   padding: 0;
 }
 
-.movie-details .movie h5 {
+.movie-details .movie-synopsis {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.movie-details .movie-synopsis h5 {
   color: white;
 }
 
-.movie-details .movie .synopsis {
+.movie-details .movie-synopsis .synopsis {
   color: white;
-  max-width: 17rem;
-  margin-top: -3.5rem;
+  max-width: auto;
   height: auto;
   border: hidden;
 }

@@ -1,4 +1,4 @@
-.movie-details {
+.show-details {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -6,32 +6,27 @@
     max-height: 50rem;
     max-width: 20rem;
 
-    .movie {
+    .show {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 3rem;
         margin-top: 2rem;
 
 
-        .poster {
+        .show-poster {
             max-width: auto;
             height: 20rem;
         }
-        .post {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        .show-genre {
             
 
             h4{
                 color: white;
             }
 
-            .genres-list {
+            .show-genres-list {
                 list-style: none;
                 max-width: 20rem;
                 column-count: 2;
@@ -46,7 +41,7 @@
             color: white;
         }
 
-        .synopsis {
+        .show-synopsis {
             color: white;
             max-width: 17rem;
             margin-top: -3.5rem;
