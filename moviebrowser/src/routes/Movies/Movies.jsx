@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { ImageList, ImageListItem } from '@mui/material';
 import './Movies.css';
-import useRandomIDs from "../../components/useRandomIDs";
 
 const Movies = (props) => {
 
