@@ -27,6 +27,7 @@ export default function useRandomList() {
 
         const underscoreSample = _.sample(requestGenre, 3);
         setRandomList(underscoreSample);
+        console.log(underscoreSample)
 
     }, [])
 
