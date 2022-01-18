@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ImageList, ImageListItem } from '@mui/material';
+import useRandomList from "../../hooks/useRandomList";
 import './Movies.css';
 
 const Movies = (props) => {
@@ -14,6 +15,8 @@ const Movies = (props) => {
     const [pendingTrending, setPendingTrending] = useState(false);
     const imgPath = "https://image.tmdb.org/t/p/w1280";
 
+    const { randomList } = useRandomList();
+    console.log(randomList);
 
     useEffect(() => {
 
@@ -63,6 +66,7 @@ const Movies = (props) => {
     if (pendingTrending === true) {
         return (
             <div className="trending-list">
+                {props.requestGenre}
                 <section className="movie-list">
                     <h2>Trending now</h2>
                     <ImageList sx={{ width: 500, height: 175 }} cols={20} rowHeight={200}>
