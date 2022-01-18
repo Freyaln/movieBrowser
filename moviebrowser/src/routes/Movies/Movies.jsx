@@ -65,11 +65,11 @@ const Movies = (props) => {
             <div className="trending-list">
                 <section className="movie-list">
                     <h2>Trending now</h2>
-                    <ImageList sx={{ width: 500, height: 175 }} cols={20} rowHeight={180}>
+                    <ImageList sx={{ width: 500, height: 175 }} cols={20} rowHeight={200}>
                         {trending.map((list) =>
                             <ImageListItem key={list.id}>
                                 <Link to={`/FetchMovie/${list.id}`} key={list.id}>
-                                    <img className="poster" src={imgPath + list.poster_path} />
+                                    <img className="poster" src={imgPath + list.poster_path} alt='movie poster' />
                                 </Link>
                             </ImageListItem>
                         )}
@@ -79,7 +79,7 @@ const Movies = (props) => {
                         {requestAction.map((list) =>
                             <ImageListItem key={list.id}>
                                 <Link to={`/FetchMovie/${list.id}`} key={list.id}>
-                                    <img className="poster" src={imgPath + list.poster_path} />
+                                    <img className="poster" src={imgPath + list.poster_path} alt='movie poster' />
                                 </Link>
                             </ImageListItem>
                         )}
@@ -89,7 +89,7 @@ const Movies = (props) => {
                         {requestRomance.map((list) =>
                             <ImageListItem key={list.id}>
                                 <Link to={`/FetchMovie/${list.id}`} key={list.id}>
-                                    <img className="poster" src={imgPath + list.poster_path} />
+                                    <img className="poster" src={imgPath + list.poster_path} alt='movie poster' />
                                 </Link>
                             </ImageListItem>
                         )}
@@ -99,7 +99,7 @@ const Movies = (props) => {
                         {requestAnime.map((list) =>
                             <ImageListItem key={list.id}>
                                 <Link to={`/FetchMovie/${list.id}`} key={list.id}>
-                                    <img className="poster" src={imgPath + list.poster_path} />
+                                    <img className="poster" src={imgPath + list.poster_path} alt='movie poster' />
                                 </Link>
                             </ImageListItem>
                         )}

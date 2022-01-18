@@ -26,10 +26,95 @@
   font-size: 1.2rem;
 }
 
+@media screen and (min-width: 450px) {
+  .trending-list .movie-list .css-pr6rli-MuiImageList-root {
+    width: 1000px;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  .trending-list .movie-list .css-pr6rli-MuiImageList-root {
+    width: 1500px;
+    height: 250px;
+  }
+}
+
+@media screen and (min-width: 1501px) {
+  .trending-list .movie-list .css-pr6rli-MuiImageList-root {
+    width: 2000px;
+    height: 300px;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .trending-list .movie-list .css-pr6rli-MuiImageList-root {
+    width: 2500px;
+    height: 350px;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .trending-list .movie-list .css-ynaphb-MuiImageList-root {
+    width: 1000px;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  .trending-list .movie-list .css-ynaphb-MuiImageList-root {
+    width: 1500px;
+    height: 250px;
+  }
+}
+
+@media screen and (min-width: 1501px) {
+  .trending-list .movie-list .css-ynaphb-MuiImageList-root {
+    width: 2000px;
+    height: 300px;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .trending-list .movie-list .css-ynaphb-MuiImageList-root {
+    width: 2500px;
+    height: 350px;
+  }
+}
+
 .trending-list .movie-list .poster {
+  text-align: center;
   width: 6.5rem;
   height: 10rem;
   margin-left: 1rem;
   margin-bottom: 1rem;
   padding: 0;
+  -webkit-transition: -webkit-transform 300ms ease 100ms;
+  transition: -webkit-transform 300ms ease 100ms;
+  transition: transform 300ms ease 100ms;
+  transition: transform 300ms ease 100ms, -webkit-transform 300ms ease 100ms;
+}
+
+@media screen and (min-width: 1001px) {
+  .trending-list .movie-list .poster {
+    width: auto;
+    height: 12.5rem;
+  }
+}
+
+@media screen and (min-width: 1501px) {
+  .trending-list .movie-list .poster {
+    width: auto;
+    height: 15rem;
+  }
+}
+
+@media screen and (min-width: 2001px) {
+  .trending-list .movie-list .poster {
+    width: auto;
+    height: 18.75rem;
+  }
+}
+
+.trending-list .movie-list .poster:hover {
+  -webkit-transform: scale(1.2) translateY(10%) !important;
+          transform: scale(1.2) translateY(10%) !important;
 }

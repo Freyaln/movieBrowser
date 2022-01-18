@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Outlet, Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import MovieCard from "../routes/MovieCard/MovieCard";
 import Movies from "../routes/Movies/Movies";
@@ -16,7 +16,6 @@ const MovieCardFetch = () => {
     const [requestMovieVote, setRequestMovieVote] = useState([]);
     const [requestMovieId, setRequestMovieId] = useState([]);
     const [pendingMovie, setPendingMovie] = useState(false);
-    const imgPath = "https://image.tmdb.org/t/p/w1280";
 
     useEffect(() => {
 

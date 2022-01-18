@@ -1,11 +1,3 @@
-body {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  background-color: black;
-}
-
 article h1 {
   color: red;
   font-family: ubuntu;
@@ -58,11 +50,11 @@ article nav.navbar li:hover {
 article nav.navbar ul li ul {
   visibility: hidden;
   opacity: 0;
-  position: absolute;
   padding-left: 0;
   left: 0;
   display: none;
   background: black;
+  z-index: 10;
 }
 
 article nav.navbar ul li:hover > ul,

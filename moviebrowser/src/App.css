@@ -3,7 +3,7 @@ body {
           box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: black;
+  background-color: rgba(20, 20, 20, 0.99);
 }
 
 article .placement {
