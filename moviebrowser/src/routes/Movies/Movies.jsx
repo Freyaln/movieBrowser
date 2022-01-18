@@ -15,8 +15,8 @@ const Movies = (props) => {
     const [pendingTrending, setPendingTrending] = useState(false);
     const imgPath = "https://image.tmdb.org/t/p/w1280";
 
-    const { randomList } = useRandomList();
-    console.log(randomList);
+    useRandomList();
+    console.log(useRandomList());
 
     useEffect(() => {
 
