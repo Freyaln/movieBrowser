@@ -2,23 +2,19 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ImageList, ImageListItem } from '@mui/material';
-import useRandomList from "../../hooks/useRandomList";
+import FirstRandom from "../../components/FirstRandom";
 import './Movies.css';
 
 const Movies = (props) => {
 
     const API_URL = 'https://api.themoviedb.org/3';
-    const [requestAction, setRequestAction] = useState([]);
-    const [requestRomance, setRequestRomance] = useState([]);
-    const [requestAnime, setRequestAnime] = useState([]);
+    const [randomOne, setRandomOne] = useState([]);
+    const [randomTwo, setRandomTwo] = useState([]);
+    const [randomThree, setRandomThree] = useState([]);
     const [trending, setTrending] = useState([]);
     const [pendingTrending, setPendingTrending] = useState(false);
     const imgPath = "https://image.tmdb.org/t/p/w1280";
-    const ListOfRandom = useRandomList();
 
-
-    useRandomList();
-    console.log(ListOfRandom.randomList[0].id);
 
     useEffect(() => {
 
@@ -40,35 +36,11 @@ const Movies = (props) => {
                 console.log(error)
             })
 
-        db.get(`/discover/movie?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${ListOfRandom.randomList[0].id}`, { cache: 'reload' })
-            .then((res) => {
-                setRequestAction(res.data.results);
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-
-        db.get(`/discover/movie?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${ListOfRandom.randomList[1].id}`, { cache: 'reload' })
-            .then((res) => {
-                setRequestRomance(res.data.results);
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-
-        db.get(`/discover/movie?api_key=4d1a84bd8e2f776949378aaece646762&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${ListOfRandom.randomList[2].id}`, { cache: 'reload' })
-            .then((res) => {
-                setRequestAnime(res.data.results);
-            })
-            .catch((error) => {
-                console.log(error)
-            })
     }, []);
 
     if (pendingTrending === true) {
         return (
             <div className="trending-list">
-                {props.requestGenre}
                 <section className="movie-list">
                     <h2>Trending now</h2>
                     <ImageList sx={{ width: 500, height: 175 }} cols={20} rowHeight={200}>
@@ -80,17 +52,8 @@ const Movies = (props) => {
                             </ImageListItem>
                         )}
                     </ImageList>
-                    <h2>Top {ListOfRandom.randomList[0].name} movies</h2>
-                    <ImageList sx={{ width: 500, height: 180 }} cols={20} rowHeight={180}>
-                        {requestAction.map((list) =>
-                            <ImageListItem key={list.id}>
-                                <Link to={`/FetchMovie/${list.id}`} key={list.id}>
-                                    <img className="poster" src={imgPath + list.poster_path} alt='movie poster' />
-                                </Link>
-                            </ImageListItem>
-                        )}
-                    </ImageList>
-                    <h2>Top {ListOfRandom.randomList[1].name} movies</h2>
+                    <FirstRandom />
+                    {/*  <h2>Top  movies</h2>
                     <ImageList sx={{ width: 500, height: 180 }} cols={20} rowHeight={180}>
                         {requestRomance.map((list) =>
                             <ImageListItem key={list.id}>
@@ -100,7 +63,7 @@ const Movies = (props) => {
                             </ImageListItem>
                         )}
                     </ImageList>
-                    <h2>Top {ListOfRandom.randomList[2].name} movies</h2>
+                    <h2>Top  movies</h2>
                     <ImageList sx={{ width: 500, height: 180 }} cols={20} rowHeight={180}>
                         {requestAnime.map((list) =>
                             <ImageListItem key={list.id}>
@@ -109,7 +72,7 @@ const Movies = (props) => {
                                 </Link>
                             </ImageListItem>
                         )}
-                    </ImageList>
+                    </ImageList> */}
                 </section>
             </div >
         )

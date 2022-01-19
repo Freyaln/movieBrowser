@@ -10,6 +10,7 @@ export default function useRandomList() {
     const API_URL = 'https://api.themoviedb.org/3';
 
     useEffect(() => {
+        let fetchSuccess = false;
         const db = axios.create({
             baseURL: API_URL,
             timeout: 1000,
@@ -22,19 +23,27 @@ export default function useRandomList() {
             .then((res) => {
                 setRequestGenre(res.data.genres);
                 setPending(true);
+                console.log(res.data.genre)
             })
-            .then(console.log(requestGenre))
+            .then(() => {
+                if (!fetchSuccess) return;
+                const underscoreSample = _.sample(requestGenre, 3);
+                setRandomList(underscoreSample);
+                console.log(underscoreSample);
+            })
 
-        const underscoreSample = _.sample(requestGenre, 3);
-        setRandomList(underscoreSample);
-        console.log(underscoreSample)
+        fetchSuccess = true;
 
-    }, [])
 
-    console.log(randomList)
+
+
+    })
+
+    console.log(randomList, pending)
+
     if (pending === true) {
-
-        return { randomList, requestGenre }
+        console.log('pending = true')
+        return { randomList, pending }
     }
 
 }
