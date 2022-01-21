@@ -9,21 +9,28 @@ const SearchResults = (props) => {
     console.log(search)
     const imgPath = "https://image.tmdb.org/t/p/w1280";
 
-    return (
+    if (movie) {
+        return (
 
-        <div>
-            <h2>Search results for : {search} </h2>
-            <ImageList sx={{ width: 500, height: 175 }} cols={20} rowHeight={200}>
-                {movie.map((list) =>
-                    <ImageListItem key={list.id}>
-                        <Link to={`/FetchMovie/${list.id}`} key={list.id}>
-                            <img className="poster" src={imgPath + list.poster_path} alt='movie poster' />
-                        </Link>
-                    </ImageListItem>
-                )}
-            </ImageList>
-        </div>
-    )
+            <div>
+                <h2>Search results for : {search} </h2>
+                <ImageList sx={{ width: 500, height: 175 }} cols={20} rowHeight={200}>
+                    {movie.map((list) =>
+                        <ImageListItem key={list.id}>
+                            <Link to={`/FetchMovie/${list.id}`} key={list.id}>
+                                <img className="poster" src={imgPath + list.poster_path} alt='movie poster' />
+                            </Link>
+                        </ImageListItem>
+                    )}
+                </ImageList>
+            </div>
+        )
+    }
+    else {
+        return (
+            <p>Movie not found...</p>
+        )
+    }
 }
 
 export default SearchResults;
