@@ -12,7 +12,7 @@ const FirstRandom = () => {
     const [firstRandomList, setFirstRandomList] = useState([]);
     const [requestGenre, setRequestGenre] = useState([]);
     const [pending, setPending] = useState(false);
-
+    let underscoreSample;
 
     useEffect(() => {
         const db = axios.create({
@@ -23,31 +23,40 @@ const FirstRandom = () => {
             },
         });
 
-
-
         db.get('/genre/movie/list?&api_key=4d1a84bd8e2f776949378aaece646762&language=en-US', { cache: 'reload' })
             .then((res) => {
                 setRequestGenre(res.data.genres);
-
-
-            })
-            .then(() => {
+                console.log(res);
                 setPending(true);
-                console.log(requestGenre);
-                const underscoreSample = _.sample(requestGenre, 3);
-                setFirstRandomList(underscoreSample)
-                console.log(firstRandomList);
+                console.log(pending);
             })
-            .catch((error) => {
-                console.log(error)
-            })
-
-        console.log(requestGenre);
-
-
     }, []);
 
-    if (requestGenre.length === 2)
+    useEffect(() => {
+        console.log(requestGenre)
+        console.log(pending);
+    }, [requestGenre, pending])
+
+    useEffect(() => {
+        underscoreSample = _.sample(requestGenre, 3);
+        console.log(underscoreSample)
+    }, [requestGenre])
+
+    useEffect(() => {
+        setFirstRandomList(underscoreSample)
+    }, [requestGenre, underscoreSample])
+
+    useEffect(() => {
+        console.log(firstRandomList)
+        console.log(firstRandomList[0])
+    }, [firstRandomList])
+
+    /* useEffect(() => {
+
+    }, []) */
+
+
+    if (firstRandomList.length === 3)
         return (
             <div>
                 <h2>Top  movies</h2>
