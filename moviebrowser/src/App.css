@@ -28,8 +28,15 @@ article .placement h1 {
   margin: 0;
 }
 
-article .placement .tmdb-logo {
-  max-width: 5rem;
+article .placement .hidden {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 article nav.navbar {
@@ -150,4 +157,8 @@ article ul li ul li a {
   -webkit-column-count: 2;
           column-count: 2;
   overflow-x: hidden;
+}
+
+.tmdb-logo {
+  max-width: 5rem;
 }

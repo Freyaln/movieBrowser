@@ -12,6 +12,8 @@ import MoviesByGenre from './routes/MoviesByGenre/MoviesByGenre';
 import Genres from './routes/Genres/Genres';
 import reportWebVitals from './reportWebVitals';
 import MovieCardFetch from './components/FetchMovie';
+import Search from './routes/Search/Search';
+import SearchResults from './routes/Search/SearchResults';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -23,6 +25,7 @@ ReactDOM.render(
         <Route path="MovieCard" element={<MovieCard />} />
         <Route path="FetchMovie/:MovieId" element={<MovieCardFetch />} />
         <Route path="Movies" element={<Movies />} />
+        <Route path="SearchResults/:search" element={<SearchResults />} />
         <Route path="Genres/:GenresId" element={<Genres />} />
         <Route path="MoviesByGenre/:GenresId" element={<MoviesByGenre />} />
         <Route path="*" element={

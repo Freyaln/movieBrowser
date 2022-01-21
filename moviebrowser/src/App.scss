@@ -19,9 +19,17 @@ article {
         margin: 0;
     }
 
-    .tmdb-logo {
-      max-width: 5rem;
+    .hidden {
+      clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
     }
+
+    
   }
 
     nav {
@@ -118,4 +126,7 @@ article {
   height: 100%;
   column-count: 2;
   overflow-x: hidden;
+}
+.tmdb-logo {
+  max-width: 5rem;
 }
