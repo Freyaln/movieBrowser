@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ImageList, ImageListItem } from '@mui/material';
-import FirstRandom from "../../components/FirstRandom";
+import RandomList from "../../components/RandomList";
 import './Movies.css';
+import FetchRandomGenres from "../../components/FetchRandomGenres";
 
 const Movies = (props) => {
 
@@ -52,27 +53,7 @@ const Movies = (props) => {
                             </ImageListItem>
                         )}
                     </ImageList>
-                    <FirstRandom />
-                    {/*  <h2>Top  movies</h2>
-                    <ImageList sx={{ width: 500, height: 180 }} cols={20} rowHeight={180}>
-                        {requestRomance.map((list) =>
-                            <ImageListItem key={list.id}>
-                                <Link to={`/FetchMovie/${list.id}`} key={list.id}>
-                                    <img className="poster" src={imgPath + list.poster_path} alt='movie poster' />
-                                </Link>
-                            </ImageListItem>
-                        )}
-                    </ImageList>
-                    <h2>Top  movies</h2>
-                    <ImageList sx={{ width: 500, height: 180 }} cols={20} rowHeight={180}>
-                        {requestAnime.map((list) =>
-                            <ImageListItem key={list.id}>
-                                <Link to={`/FetchMovie/${list.id}`} key={list.id}>
-                                    <img className="poster" src={imgPath + list.poster_path} alt='movie poster' />
-                                </Link>
-                            </ImageListItem>
-                        )}
-                    </ImageList> */}
+                    <FetchRandomGenres />
                 </section>
             </div >
         )
