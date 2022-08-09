@@ -1,0 +1,29 @@
+.__welcome-page {
+  @apply h-screen flex justify-center items-center;
+    .__welcome-button {
+      @apply border-b-8 border-t-8 border-solid rounded-tr-3xl rounded-bl-3xl w-60 h-32 bg-black;
+
+
+      &:hover {
+        border-image-source: linear-gradient(90deg, rgba(45,45,45,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);
+        transition: 1s;
+        background: rgb(229, 20, 55) url(https://i.postimg.cc/wBXGXbWN/pixel.png);
+        transition-delay: 0.5s;
+        background-size: 200px;
+        animation: flood 0.8s steps(8) backwards;
+      }
+    }
+  @keyframes flood {
+    0% {
+      background-position-y: 0;
+    }
+    100% {
+      background-position-y: -480px;
+    }
+  }
+
+  .__button-text {
+    @apply font-bold text-xl;
+  }
+}
+

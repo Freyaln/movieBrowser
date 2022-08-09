@@ -1,0 +1,45 @@
+.__header {
+  @apply flex items-center w-full h-full;
+}
+.__header .__title-block {
+  @apply flex items-center justify-center w-80 pl-5 h-32 ml-5;
+}
+.__header .__title-block p {
+  @apply text-3xl font-extrabold uppercase text-orange-800;
+  animation: flip 5s infinite;
+  animation-delay: 3s;
+}
+@keyframes flip {
+  0%, 80% {
+    transform: rotateY(360deg);
+  }
+}
+.__header .__navbar {
+  @apply flex flex-row justify-evenly items-center w-full h-max ml-5;
+}
+.__header .__navbar .__movies {
+  @apply flex flex-col items-center justify-center gap-2 font-bold;
+}
+.__header .__navbar .__movies .__navbar-button {
+  @apply rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75;
+}
+.__header .__navbar .__movies .__list {
+  @apply flex flex-row gap-2 font-light;
+}
+.__header .__navbar .__movies .__list li:hover {
+  @apply font-bold text-xl text-orange-800;
+}
+.__header .__navbar .__series {
+  @apply flex flex-col items-center justify-center gap-2 font-bold;
+}
+.__header .__navbar .__series .__navbar-button {
+  @apply rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75;
+}
+.__header .__navbar .__series .__list {
+  @apply flex flex-row gap-2 font-light;
+}
+.__header .__navbar .__series .__list li:hover {
+  @apply font-bold text-xl text-orange-800;
+}
+
+/*# sourceMappingURL=Navbar.css.map */
