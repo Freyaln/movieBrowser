@@ -1,13 +1,13 @@
 import { Dialog, Transition } from '@headlessui/react';
 import React, { Dispatch, FC, Fragment, SetStateAction, useEffect, useState } from 'react';
-import {Link, useLocation} from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { DataList, DatasDetail } from '../../../data/DataLists/Interface';
 import Typo, { TextType } from '../../atoms/Typo/Typo';
 import { getMoviesDetail, getSeriesDetail } from '../../../data/Fetch/Fetch';
 import './Modal.scss';
-import Lists from "../Lists/Lists";
-import {minToHours} from "../../../data/Hooks/Hooks";
+import Lists from '../Lists/Lists';
+import { minToHours } from '../../../data/Hooks/Hooks';
 
 interface IModalProps {
   isOpen: boolean;
@@ -23,15 +23,16 @@ const Modal: FC<IModalProps> = ({ datas, title, isOpen, setIsOpen }) => {
   const Id = datas;
   const imgPath = 'https://image.tmdb.org/t/p/w1280';
   const img =
-    location.pathname === '/browse/series'
+    location.pathname === '/series'
       ? serieDetail?.map((i: DatasDetail) => i.poster_path)
       : movieDetail?.map((i: DatasDetail) => i.poster_path);
 
   function closeModal() {
     setIsOpen(false);
+    console.log(isOpen);
   }
 
-  location.pathname === '/browse/series'
+  location.pathname === '/series'
     ? useEffect(() => {
         const fetchSerieDetail = getSeriesDetail(Id).then((fetchSerieDetail) => {
           setSerieDetail(fetchSerieDetail);
@@ -74,10 +75,13 @@ const Modal: FC<IModalProps> = ({ datas, title, isOpen, setIsOpen }) => {
                   {title}
                 </Dialog.Title>
                 <div className="mt-2">
-                  {datas &&
-                      datas.length > 10 &&
-                      <Lists datas={datas} className="__modal-content-text">
-                      </Lists>}
+                  {datas && datas.length > 10 && (
+                    <Lists
+                      datas={datas}
+                      className="__modal-content-text"
+                      onClick={closeModal}
+                    ></Lists>
+                  )}
                 </div>
                 {movieDetail && movieDetail.length > 0 && (
                   <div className="__detail-block">

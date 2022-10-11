@@ -1,7 +1,5 @@
 import React, { ChangeEvent, FC, useEffect, useRef, useState } from 'react';
-import {
-  moviesGenresList,
-} from '../../../data/DataLists/DataLists';
+import { moviesGenresList } from '../../../data/DataLists/DataLists';
 import './Navbar.scss';
 import Typo, { TextType } from '../../atoms/Typo/Typo';
 import { v4 as uuidv4 } from 'uuid';
@@ -21,7 +19,7 @@ const Navbar: FC = () => {
 
   useEffect(() => {
     setNavMoviesDatas(
-      moviesGenresList.map((t: { name: string; link: string, id: string }) => {
+      moviesGenresList.map((t: { name: string; link: string; id: string }) => {
         return { name: t.name, link: t.link, id: t.id };
       })
     );
@@ -29,7 +27,7 @@ const Navbar: FC = () => {
 
   return (
     <header className="__header">
-      <Link to={'/browse'}>
+      <Link to={'/home'}>
         <div className="__title-block">
           {titleLetters.map((letters, index) => (
             <Typo
@@ -50,7 +48,7 @@ const Navbar: FC = () => {
           <Modal isOpen={isOpen} title="Genres" datas={navMoviesDatas} setIsOpen={setIsOpen} />
         </div>
         <div className="__series">
-          <Link to={'/browse/series'}>
+          <Link to={'/series'}>
             <button type="button" className="__navbar-button">
               Series
             </button>
@@ -63,4 +61,3 @@ const Navbar: FC = () => {
 };
 
 export default Navbar;
-

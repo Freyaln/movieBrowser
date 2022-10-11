@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.scss';
-import Welcome from "./layout/Welcome/Welcome";
+import Homepage from './layout/Homepage/Homepage';
+import Navbar from './components/organisms/Navbar/Navbar';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="__body">
-       <Welcome />
-    </div>
+    <section className="__body">
+      <Homepage />
+    </section>
   );
 }
 

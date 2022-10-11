@@ -17,41 +17,43 @@ const BannerVideo: FC<IBannerProps> = ({ datas, movie }) => {
   const imgPath = 'https://image.tmdb.org/t/p/w1280';
   return (
     <>
-      <div className="__trailer-block">
-        {datas.map((v) => v.type === 'Trailer' ? (
-              <>
-            <iframe
-              src={`${yt}${datas.map((v) => v.key)}`}
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              title={`${movie?.title} videos`}
-              className="__detail-video"
-            />
+      <section className="__trailer-block">
+        {datas.map((v) =>
+          v.type === 'Trailer' ? (
+            <>
+              <iframe
+                src={`${yt}${datas.map((v) => v.key)}`}
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                title={`${movie?.title} videos`}
+                className="__detail-video"
+              />
               <div className="__detail-text-block">
-                  <Typo type={TextType.TEXT} className="__text">
-                      <blockquote>{movie?.overview}</blockquote>
-                  </Typo>
+                <Typo type={TextType.TEXT} className="__text">
+                  <blockquote>{movie?.overview}</blockquote>
+                </Typo>
               </div>
             </>
           ) : v.type === 'Teaser' ? (
-              <>
+            <>
               <iframe
-                  src={`https://www.youtube.com/embed/${v.key}`}
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                  title={`${movie?.title} videos`}
-                  className="__detail-video"
+                src={`https://www.youtube.com/embed/${v.key}`}
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                title={`${movie?.title} videos`}
+                className="__detail-video"
               />
               <div className="__detail-text-block">
-                  <Typo type={TextType.TEXT} className="__text">
-                      <blockquote>{movie?.overview}</blockquote>
-                  </Typo>
+                <Typo type={TextType.TEXT} className="__text">
+                  <blockquote>{movie?.overview}</blockquote>
+                </Typo>
               </div>
             </>
           ) : (
-              <></>
-          ))}
-      </div>
+            <></>
+          )
+        )}
+      </section>
     </>
   );
 };
