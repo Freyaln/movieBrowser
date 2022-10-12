@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { getBanner, getMovies } from '../../../data/Fetch/Fetch';
-import ImageGrid, { DatasModel } from '../../molecules/ImageGrid/ImageGrid';
+import ImageRow, { DatasModel } from '../../molecules/ImageRow/ImageRow';
 import { DataPoster } from '../../../data/DataLists/Interface';
 import { useParams } from 'react-router-dom';
 import Banner from '../../molecules/Banner/Banner';
@@ -52,7 +52,6 @@ const FrontGrid: FC = () => {
 
     popular && topRated && theatres && upcoming ? setFlag(true) : '';
   }, [searchParam, flag]);
-  console.log(flag);
 
   return (
     <main className="__frontpage">
@@ -61,25 +60,25 @@ const FrontGrid: FC = () => {
         <Typo type={TextType.H2} className="__frontpage__categories__title">
           Popular
         </Typo>
-        <ImageGrid className="__movies-posters" datas={popular} />
+        <ImageRow className="__movies-posters" datas={popular} />
       </section>
       <section className="__frontpage__categories__block">
         <Typo type={TextType.H2} className="__frontpage__categories__title">
           Top rated
         </Typo>
-        <ImageGrid className="__movies-posters" datas={topRated} />
+        <ImageRow className="__movies-posters" datas={topRated} />
       </section>
       <section className="__frontpage__categories__block">
         <Typo type={TextType.H2} className="__frontpage__categories__title">
           Upcoming
         </Typo>
-        <ImageGrid className="__movies-posters" datas={upcoming} />
+        <ImageRow className="__movies-posters" datas={upcoming} />
       </section>
       <section className="__frontpage__categories__block">
         <Typo type={TextType.H2} className="__frontpage__categories__title">
           In Theatres now
         </Typo>
-        <ImageGrid className="__movies-posters" datas={theatres} />
+        <ImageRow className="__movies-posters" datas={theatres} />
       </section>
     </main>
   );

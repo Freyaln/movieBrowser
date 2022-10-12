@@ -4,17 +4,19 @@
   @apply flex items-center w-full h-full justify-evenly;
 
   .__title-block {
-    @apply flex items-center justify-center pl-5 h-32 ml-5;
-    width: 35rem;
+    @apply flex items-center justify-center pl-5 h-32 ml-28;
+    width: 25rem;
 
     .__title-text {
-      @apply font-bold text-4xl;
+      @apply font-bold text-3xl;
       pointer-events: none;
       @include typed((
-              "Is it Netflix ?": (color: #E50914),
-              "Or Primevideo ?": (color: #00A8E1),
-              "Maybe Hulu ?": (color: #1ce783),
-              "Sorry, just a MovieBrowser": (color: #FFA976B2)
+              "This is a personnal test": (color: #FFF),
+              "not to clone Netflix": (color: #E50914),
+              "nor IMDb": (color: #f3ce13),
+              "but to technically challenge myself in many ways ": (color: #FA6207B2),
+              "to create a simple": (color: #FFF),
+              "MovieBrowser": (color: #FA6207B2)
       ), 1.5,
               (
       caret-speed: 2.5,
@@ -31,7 +33,7 @@
       @apply flex flex-col items-center justify-center gap-2 font-bold;
 
       .__navbar-button {
-        @apply rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75;
+        @apply rounded-md px-4 py-2 text-xl font-medium text-white hover:underline underline-offset-4;
       }
 
       .__list {
@@ -46,7 +48,7 @@
      @apply flex flex-col items-center justify-center gap-2 font-bold;
 
       .__navbar-button {
-        @apply rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75;
+        @apply rounded-md px-4 py-2 text-xl font-medium text-white hover:underline underline-offset-4;
       }
 
       .__list {

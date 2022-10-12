@@ -19,7 +19,6 @@ const Banner: FC<IBannerProps> = ({ movie }) => {
   const [id, setId] = useState<string>('');
   const imgPath = 'https://image.tmdb.org/t/p/w1280';
   const random = Math.floor(Math.random() * 19) + 1;
-  console.log(movie);
   useEffect(() => {
     setBanner(movie[random]);
   }, []);

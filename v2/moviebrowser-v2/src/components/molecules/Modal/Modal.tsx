@@ -20,7 +20,7 @@ const Modal: FC<IModalProps> = ({ datas, title, isOpen, setIsOpen }) => {
   const [movieDetail, setMovieDetail] = useState<DatasDetail[] | undefined>([]);
   const [serieDetail, setSerieDetail] = useState<DatasDetail[] | undefined>([]);
   const location = useLocation();
-  const Id = datas ? datas : 1;
+  const Id = datas ? datas : 718930;
   const imgPath = 'https://image.tmdb.org/t/p/w1280';
   const img =
     location.pathname === '/series'

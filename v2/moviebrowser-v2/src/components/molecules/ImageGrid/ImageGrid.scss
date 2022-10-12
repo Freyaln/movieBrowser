@@ -1,7 +1,5 @@
 .__imageGrid {
-  //@apply grid grid-cols-5 grid-rows-4 gap-6 m-5 p-2 h-full ;
-  @apply inline-flex flex-row flex-nowrap gap-6 m-5 p-2 overflow-auto;
-  height: 25rem;
+  @apply grid grid-cols-5 grid-rows-4 gap-6 m-5 p-2 h-full;
   width: 95%;
 
   &::-webkit-scrollbar {
@@ -11,7 +9,7 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #FFA976B2;
+    background-color: rgba(250, 98, 7, 0.7);
   }
 
 }
