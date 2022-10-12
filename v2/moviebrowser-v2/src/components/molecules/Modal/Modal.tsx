@@ -73,7 +73,7 @@ const Modal: FC<IModalProps> = ({ datas, title, isOpen, setIsOpen }) => {
                 <Dialog.Title as="h3" className="__modal-content-title">
                   {title}
                 </Dialog.Title>
-                <div className="mt-2">
+                <section className="mt-2">
                   {datas && datas.length > 10 && (
                     <Lists
                       datas={datas}
@@ -81,96 +81,102 @@ const Modal: FC<IModalProps> = ({ datas, title, isOpen, setIsOpen }) => {
                       onClick={closeModal}
                     ></Lists>
                   )}
-                </div>
+                </section>
                 {movieDetail && movieDetail.length > 0 && (
-                  <div className="__detail-block">
+                  <section className="__detail-block">
                     <Typo type={TextType.H2} className="__detail-title">
                       {movieDetail.map((i: DatasDetail) => i.title)}
                     </Typo>
-                    <div className="__detail-img-block">
+                    <section className="__detail-img-block">
                       <img src={imgPath + img} className="__detail-img" />
-                    </div>
-                    <div className="__detail-text-block">
-                      <div>
+                    </section>
+                    <section className="__detail-text-block">
+                      <article>
                         <Typo type={TextType.H2} className="__detail">
                           Genres :
-                          <ul className="__text">
-                            {movieDetail.map((i: DatasDetail) =>
-                              i.genres?.map((i) => {
-                                return <li key={uuidv4()}>{i.name}</li>;
-                              })
-                            )}
-                          </ul>
                         </Typo>
-                      </div>
-                      <Typo type={TextType.H2} className="__detail">
-                        Runtime:
+                        <ul className="__text">
+                          {movieDetail.map((i: DatasDetail) =>
+                            i.genres?.map((i) => {
+                              return <li key={uuidv4()}>{i.name}</li>;
+                            })
+                          )}
+                        </ul>
+                      </article>
+                      <article>
+                        <Typo type={TextType.H2} className="__detail">
+                          Runtime:
+                        </Typo>
                         <Typo type={TextType.TEXT} className="__text">
                           {movieDetail.map((i: DatasDetail) => minToHours(i.runtime))}
                         </Typo>
-                      </Typo>
-                      <Typo type={TextType.H2} className="__detail">
-                        Release date:
+                      </article>
+                      <article>
+                        <Typo type={TextType.H2} className="__detail">
+                          Release date:
+                        </Typo>
                         <Typo type={TextType.TEXT} className="__text">
                           {movieDetail.map((i: DatasDetail) => i.release_date)}
                         </Typo>
-                      </Typo>
-                      <Typo type={TextType.H2} className="__detail">
-                        Synopsys:
+                      </article>
+                      <article>
+                        <Typo type={TextType.H2} className="__detail">
+                          Synopsys:
+                        </Typo>
                         <Typo type={TextType.TEXT} className="__text">
                           {movieDetail.map((i: DatasDetail) => i.overview)}
                         </Typo>
-                      </Typo>
-                    </div>
-                  </div>
+                      </article>
+                    </section>
+                  </section>
                 )}
                 {serieDetail && serieDetail.length > 0 && (
-                  <div className="__detail-block">
+                  <section className="__detail-block">
                     <Typo type={TextType.H2} className="__detail-title">
                       {serieDetail.map((i: DatasDetail) => i.title)}
                     </Typo>
-                    <div className="__detail-img-block">
+                    <section className="__detail-img-block">
                       <img src={imgPath + img} className="__detail-img" />
-                    </div>
-                    <div className="__detail-text-block">
-                      <div>
+                    </section>
+                    <section className="__detail-text-block">
+                      <article>
                         <Typo type={TextType.H2} className="__detail">
                           Genres :
-                          <ul className="__text">
-                            {serieDetail.map((i: DatasDetail) =>
-                              i.genres?.map((i) => {
-                                return <li key={uuidv4()}>{i.name}</li>;
-                              })
-                            )}
-                          </ul>
                         </Typo>
-                      </div>
+                        <ul className="__text">
+                          {serieDetail.map((i: DatasDetail) =>
+                            i.genres?.map((i) => {
+                              return <li key={uuidv4()}>{i.name}</li>;
+                            })
+                          )}
+                        </ul>
+                      </article>
                       <Typo type={TextType.H2} className="__detail">
                         Seasons:
-                        <Typo type={TextType.TEXT} className="__text">
-                          {serieDetail.map((i: DatasDetail) => i.number_of_seasons)}
-                        </Typo>
+                      </Typo>
+                      <Typo type={TextType.TEXT} className="__text">
+                        {serieDetail.map((i: DatasDetail) => i.number_of_seasons)}
                       </Typo>
                       <Typo type={TextType.H2} className="__detail">
                         Episodes:
-                        <Typo type={TextType.TEXT} className="__text">
-                          {serieDetail.map((i: DatasDetail) => i.number_of_episodes)}
-                        </Typo>
+                      </Typo>
+                      <Typo type={TextType.TEXT} className="__text">
+                        {serieDetail.map((i: DatasDetail) => i.number_of_episodes)}
                       </Typo>
                       <Typo type={TextType.H2} className="__detail">
                         Release date:
-                        <Typo type={TextType.TEXT} className="__text">
-                          {serieDetail.map((i: DatasDetail) => i.first_air_date)}
-                        </Typo>
+                      </Typo>
+                      <Typo type={TextType.TEXT} className="__text">
+                        {serieDetail.map((i: DatasDetail) => i.first_air_date)}
                       </Typo>
                       <Typo type={TextType.H2} className="__detail">
                         Synopsys:
-                        <Typo type={TextType.TEXT} className="__text">
-                          {serieDetail.map((i: DatasDetail) => i.overview)}
-                        </Typo>
                       </Typo>
-                    </div>
-                  </div>
+                      <Typo type={TextType.TEXT} className="__text">
+                        {serieDetail.map((i: DatasDetail) => i.overview)}
+                      </Typo>
+                    </section>
+                  </section>
                 )}
               </Dialog.Panel>
             </Transition.Child>

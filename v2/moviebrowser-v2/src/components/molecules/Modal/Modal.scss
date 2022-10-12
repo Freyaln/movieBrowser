@@ -6,10 +6,10 @@
   }
 
   .__modal-content-container {
-    @apply fixed inset-0 overflow-y-scroll;
+    @apply fixed inset-0;
 
     .__modal-content-position {
-      @apply flex h-full items-center justify-center p-4 text-center;
+      @apply flex h-full items-center justify-center p-4 text-center overflow-y-scroll;
 
       .__modal-content-typo {
         @apply w-1/2 h-auto transform overflow-y-visible rounded-3xl p-6 text-center align-middle shadow-xl transition-all;
@@ -27,7 +27,7 @@
           @apply flex flex-col gap-10;
 
           .__detail-title {
-            @apply font-bold text-3xl
+            @apply font-bold text-3xl text-white;
           }
 
           .__detail-img-block {
@@ -40,11 +40,10 @@
           .__detail-text-block {
             @apply flex flex-wrap justify-around;
             .__detail {
-              @apply font-bold text-xl;
-
-              .__text {
-                @apply italic font-normal text-lg text-white;
-              }
+              @apply font-extrabold text-xl text-white;
+            }
+            .__text {
+              @apply font-normal text-white;
             }
           }
         }
