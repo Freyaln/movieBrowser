@@ -1,27 +1,20 @@
-import React, {FC, useEffect, useState} from 'react';
-import {getFrontpageList, getMovies, getTrailer} from '../../../data/Fetch/Fetch';
-import ImageGrid, {DatasModel} from '../../molecules/ImageGrid/ImageGrid';
-import {DatasDetail, DatasTrailer} from '../../../data/DataLists/Interface';
-import {useParams} from 'react-router-dom';
-import BannerVideo from '../../molecules/BannerVideo/BannerVideo';
-import Typo, {TextType} from "../../atoms/Typo/Typo";
-import {getRandomId} from "../../../data/Hooks/Hooks";
+import React, { FC, useEffect, useState } from 'react';
+import { getBanner, getMovies } from '../../../data/Fetch/Fetch';
+import ImageGrid, { DatasModel } from '../../molecules/ImageGrid/ImageGrid';
+import { DataPoster, DatasDetail } from '../../../data/DataLists/Interface';
+import { useParams } from 'react-router-dom';
+import Banner from '../../molecules/Banner/Banner';
+import './FrontGrid.scss';
 
 const randomList: string[] = ['popular', 'top_rated', 'upcoming'];
 
 const FrontGrid: FC = () => {
   const [postersAndId, setPostersAndId] = useState<DatasModel[]>([]);
-  const [listInfos, setListInfos] = useState<DatasDetail[]>([]);
-  const [trailerId, setTrailerId] = useState<DatasDetail>();
-  const [trailerAvailable, setTrailerAvailable] = useState<DatasTrailer[]>([]);
-  const [trailer, setTrailer] = useState<DatasDetail>();
+  const [listInfos, setListInfos] = useState<DataPoster[]>();
   const [flag, setFlag] = useState<boolean>(true);
   const linkParam = useParams() as { linkParam: string };
   const searchParam = parseInt(linkParam.linkParam, 10);
-  const page = Math.floor(Math.random() * 10 +1);
   const random = randomList[Math.floor(Math.random() * randomList.length)];
-
-
 
   useEffect(() => {
     const fetchPosters = getMovies(random).then((fetchPosters) => {
@@ -31,60 +24,19 @@ const FrontGrid: FC = () => {
         })
       );
     });
-    const fetchList = getFrontpageList(page).then((fetchList) => {
-      setListInfos(fetchList)
-      setFlag(true)
-    })
-  }, [searchParam]);
+    const fetchList = getBanner(1).then((fetchList) => {
+      setListInfos(fetchList);
+      setFlag(true);
+    });
+  }, [searchParam, flag]);
+  console.log(listInfos);
 
-  useEffect(() => {
-    if (listInfos) {
-    setTrailerId(listInfos[Math.floor(Math.random() * listInfos.length)])
-    }
-  }, [flag])
-
-
-  // TODO FIX THE HOOK
-  // const randomizeFrontOutput = getRandomId(listInfos);
-  // if (listInfos) {
-  //   console.log(test)
-  // }
-
-  useEffect(() => {
-    if (trailerId) {
-      const id = trailerId && trailerId.id;
-      const fetchTrailer = getTrailer(id as string).then((fetchTrailer) => {
-        setTrailerAvailable(fetchTrailer);
-      });
-    }
-  },[trailerId])
-
-  useEffect(() => {
-    if (trailerAvailable && trailerAvailable.map((t) => t.type === 'Trailer')) {
-      console.log('Datas collected')
-      setFlag(false)
-    }
-    else if(trailerAvailable && !trailerAvailable.map((t) => t.type === 'Trailer')) {
-      console.log('Doesn"t include trailer')
-    }
-  },[])
-
-  // TODO RÉGLER LE RE-RENDER DE L OVERVIEW
-
-  if (trailerAvailable && trailerId) {
-  return(
-  <>
-    <BannerVideo datas={trailerAvailable} movie={trailerId}/>
-    <ImageGrid className="__movies-posters" datas={postersAndId} />
-  </>
+  return (
+    <main className="__frontpage">
+      {listInfos && <Banner movie={listInfos} />}
+      <ImageGrid className="__movies-posters" datas={postersAndId} />
+    </main>
   );
-  }
-  else {
-    return (
-        <Typo type={TextType.H2} className='__404'> Loading ... </Typo>
-    )
-  }
-
 };
 
 export default FrontGrid;

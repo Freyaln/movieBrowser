@@ -1,22 +1,31 @@
+@import 'src/Mixins/typed';
+
 .__header {
-  @apply flex items-center w-full h-full;
+  @apply flex items-center w-full h-full justify-evenly;
 
   .__title-block {
-    @apply flex items-center justify-center w-80 pl-5 h-32 ml-5;
+    @apply flex items-center justify-center pl-5 h-32 ml-5;
+    width: 35rem;
 
-    p {
-      @apply text-3xl font-extrabold uppercase text-orange-800;
-      animation: flip 5s infinite;
-      animation-delay: calc(.2s * 15)
-      }
-    @keyframes flip {
-      0%,80% {
-        transform: rotateY(360deg)
-      }
+    .__title-text {
+      @apply font-bold text-4xl;
+      pointer-events: none;
+      @include typed((
+              "Is it Netflix ?": (color: #E50914),
+              "Or Primevideo ?": (color: #00A8E1),
+              "Maybe Hulu ?": (color: #1ce783),
+              "Sorry, just a MovieBrowser": (color: #FFA976B2)
+      ), 1.5,
+              (
+      caret-speed: 2.5,
+      caret-width: 2px,
+      caret-color: orange,
+      caret-space: 1px
+      ));
     }
-    }
+  }
   .__navbar {
-    @apply flex flex-row justify-evenly items-center w-full h-max ml-5;
+    @apply flex flex-row justify-evenly items-center justify-evenly w-1/2 h-max ml-5;
 
     .__movies {
       @apply flex flex-col items-center justify-center gap-2 font-bold;

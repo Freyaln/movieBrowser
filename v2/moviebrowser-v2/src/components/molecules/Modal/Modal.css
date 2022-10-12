@@ -11,7 +11,8 @@
   @apply flex h-full items-center justify-center p-4 text-center;
 }
 .__modal-container .__modal-content-container .__modal-content-position .__modal-content-typo {
-  @apply w-1/2 h-auto transform overflow-y-visible rounded-2xl bg-black bg-opacity-80 p-6 text-center align-middle shadow-xl transition-all;
+  @apply w-1/2 h-auto transform overflow-y-visible rounded-3xl p-6 text-center align-middle shadow-xl transition-all;
+  background: rgb(21, 20, 31);
 }
 .__modal-container .__modal-content-container .__modal-content-position .__modal-content-typo .__modal-content-title {
   @apply text-2xl italic font-bold leading-10 text-white;
@@ -29,7 +30,7 @@
   @apply flex justify-center;
 }
 .__modal-container .__modal-content-container .__modal-content-position .__modal-content-typo .__detail-block .__detail-img-block .__detail-img {
-  @apply w-1/2;
+  @apply w-1/2 rounded-3xl;
 }
 .__modal-container .__modal-content-container .__modal-content-position .__modal-content-typo .__detail-block .__detail-text-block {
   @apply flex flex-wrap justify-around;

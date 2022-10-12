@@ -5,8 +5,7 @@
 html,
 #root {
   height: max-content;
-  background: rgb(45, 45, 45);
-  background: linear-gradient(90deg, rgb(45, 45, 45) 0%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 100%);
+  background-color: #15141f;
 }
 
 div {

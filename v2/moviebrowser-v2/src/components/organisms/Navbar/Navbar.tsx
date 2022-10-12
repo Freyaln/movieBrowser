@@ -3,7 +3,6 @@ import { moviesGenresList } from '../../../data/DataLists/DataLists';
 import './Navbar.scss';
 import Typo, { TextType } from '../../atoms/Typo/Typo';
 import { v4 as uuidv4 } from 'uuid';
-import { DatasModel } from '../../molecules/ImageGrid/ImageGrid';
 import Modal from '../../molecules/Modal/Modal';
 import { Link } from 'react-router-dom';
 import { DataList } from '../../../data/DataLists/Interface';
@@ -13,9 +12,7 @@ const titleLetters = ['T', 'h', 'e', '\u00a0\u00a0', 'S', 't', 'o', 'r', 'a', 'g
 const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [navMoviesDatas, setNavMoviesDatas] = useState<DataList[]>([]);
-  const [navSeriesDatas, setNavSeriesDatas] = useState<DataList[]>([]);
   const [searchDatas, setSearchDatas] = useState<string>('');
-  const [displayedDatas, setDisplayedDatas] = useState<DatasModel[]>([]);
 
   useEffect(() => {
     setNavMoviesDatas(
@@ -29,15 +26,7 @@ const Navbar: FC = () => {
     <header className="__header">
       <Link to={'/home'}>
         <div className="__title-block">
-          {titleLetters.map((letters, index) => (
-            <Typo
-              key={uuidv4()}
-              type={TextType.TEXT}
-              style={{ animationDelay: `calc(.2s * ${index})` }}
-            >
-              {letters}
-            </Typo>
-          ))}
+          <p className="__title-text"></p>
         </div>
       </Link>
       <nav className="__navbar">
