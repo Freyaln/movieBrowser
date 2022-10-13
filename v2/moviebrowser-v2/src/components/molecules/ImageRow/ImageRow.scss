@@ -12,6 +12,9 @@
   &::-webkit-scrollbar-thumb {
     background-color: rgba(250, 98, 7, 0.7);
   }
+  &::-webkit-scrollbar-track {
+     background-color: rgba(255, 255, 255, 0.1);
+   }
   .__movies-posters {
     @apply object-cover rounded-3xl;
     width: 100%;

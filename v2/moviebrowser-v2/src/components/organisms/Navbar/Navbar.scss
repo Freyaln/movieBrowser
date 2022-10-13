@@ -1,11 +1,11 @@
 @import 'src/Mixins/typed';
 
 .__header {
-  @apply flex items-center w-full h-full justify-evenly;
+  @apply flex items-center w-full h-full justify-between;
 
   .__title-block {
-    @apply flex items-center justify-center pl-5 h-32 ml-28;
-    width: 25rem;
+    @apply flex items-center justify-start h-32 ml-10;
+    width: 21rem;
 
     .__title-text {
       @apply font-bold text-3xl;
@@ -14,20 +14,21 @@
               "This is a personnal test": (color: #FFF),
               "not to clone Netflix": (color: #E50914),
               "nor IMDb": (color: #f3ce13),
-              "but to technically challenge myself in many ways ": (color: #FA6207B2),
+              "but to challenge myself in many ways": (color: #FFF),
               "to create a simple": (color: #FFF),
-              "MovieBrowser": (color: #FA6207B2)
       ), 1.5,
               (
-      caret-speed: 2.5,
-      caret-width: 2px,
-      caret-color: orange,
-      caret-space: 1px
+                      caret-speed: 2.5,
+                      caret-width: 2px,
+                      caret-color: orange,
+                      caret-space: 1px,
+                      iterations: 1,
+                      end-on: ("MovieBrowser": (color: #FA6207B2))
       ));
     }
   }
   .__navbar {
-    @apply flex flex-row justify-evenly items-center justify-evenly w-1/2 h-max ml-5;
+    @apply flex flex-row justify-end items-center justify-end w-1/2 h-max mr-10;
 
     .__movies {
       @apply flex flex-col items-center justify-center gap-2 font-bold;

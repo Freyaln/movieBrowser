@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './ImageRow.scss';
 import Modal from '../Modal/Modal';
