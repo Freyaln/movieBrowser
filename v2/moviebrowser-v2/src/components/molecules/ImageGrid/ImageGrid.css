@@ -1,0 +1,16 @@
+.__imageGrid {
+  @apply grid grid-cols-5 grid-rows-4 gap-6 m-5 p-2 h-full;
+  width: 95%;
+}
+.__imageGrid::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+.__imageGrid::-webkit-scrollbar-thumb {
+  background-color: rgba(250, 98, 7, 0.7);
+}
+.__imageGrid::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/*# sourceMappingURL=ImageGrid.css.map */

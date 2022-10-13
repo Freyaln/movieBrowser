@@ -31,17 +31,17 @@ const Modal: FC<IModalProps> = ({ datas, title, isOpen, setIsOpen }) => {
     setIsOpen(false);
   }
 
-  location.pathname === '/series'
-    ? useEffect(() => {
-        const fetchSerieDetail = getSeriesDetail(Id).then((fetchSerieDetail) => {
-          setSerieDetail(fetchSerieDetail);
-        });
-      }, [datas])
-    : useEffect(() => {
-        const fetchMovieDetail = getMoviesDetail(Id).then((fetchMovieDetail) => {
-          setMovieDetail(fetchMovieDetail);
-        });
-      }, [datas]);
+  useEffect(() => {
+    if (isOpen && location.pathname === '/series') {
+      const fetchSerieDetail = getSeriesDetail(Id).then((fetchSerieDetail) => {
+        setSerieDetail(fetchSerieDetail);
+      });
+    } else if (isOpen && location.pathname !== '/series') {
+      const fetchMovieDetail = getMoviesDetail(Id).then((fetchMovieDetail) => {
+        setMovieDetail(fetchMovieDetail);
+      });
+    }
+  }, [datas]);
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
