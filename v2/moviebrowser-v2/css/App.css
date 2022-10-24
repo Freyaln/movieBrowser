@@ -1,0 +1,6 @@
+.__body {
+  @apply flex flex-col w-full h-full bg-black text-white;
+  background: #15141f;
+}
+
+/*# sourceMappingURL=App.css.map */

@@ -17,7 +17,6 @@ const Series: FC = () => {
   const searchParam = linkParam.linkParam;
 
   const handlePages = () => {
-    console.log('click')
     setPage(page + 1);
   };
 

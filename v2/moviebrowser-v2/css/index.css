@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Reset CSS */
+html,
+#root {
+  height: max-content;
+  background-color: #15141f;
+}
+html::-webkit-scrollbar,
+#root::-webkit-scrollbar {
+  width: 0.5rem;
+}
+html::-webkit-scrollbar-track,
+#root::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgb(0, 0, 0);
+}
+html::-webkit-scrollbar-thumb,
+#root::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 169, 118, 0.6980392157);
+}
+
+div {
+  @apply overflow-hidden;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  top: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/*# sourceMappingURL=index.css.map */
