@@ -1,5 +1,5 @@
 import {DatasDetail} from "../DataLists/Interface";
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 
 export function twoDigits(input: number) {
@@ -16,4 +16,12 @@ export function getRandomId(list: DatasDetail[]) {
     const listItem = list[Math.floor(Math.random() * list.length)]
     const id = listItem.id;
     return id
+}
+
+export function usePrevious(value: any) {
+    const ref = useRef();
+    useEffect(() => {
+        ref.current = value;
+    });
+    return ref.current;
 }

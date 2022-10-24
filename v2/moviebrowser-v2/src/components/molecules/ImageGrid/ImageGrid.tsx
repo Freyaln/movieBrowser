@@ -25,6 +25,7 @@ const ImageGrid: FC<IListProps> = ({ className, datas , title}) => {
   const [id, setId] = useState<string>('');
   const imgPath = 'https://image.tmdb.org/t/p/w500/';
 
+
   return (
     <>
         <section className='__movies__genre__block'>
