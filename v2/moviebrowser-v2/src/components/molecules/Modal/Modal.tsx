@@ -43,7 +43,6 @@ const Modal: FC<IModalProps> = ({ datas, title, isOpen, setIsOpen }) => {
     }
   }, [datas]);
 
-  console.log(movieDetail)
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
