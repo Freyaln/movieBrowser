@@ -13,3 +13,11 @@
     }
   }
 }
+
+
+.__series__posters__more__block {
+  @apply flex flex-col items-center;
+  .__series__posters__more__btn {
+    @apply font-bold text-2xl text-white border-orange-800 border-2 w-52 h-10 mb-5;
+  }
+}

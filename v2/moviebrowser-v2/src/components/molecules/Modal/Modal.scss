@@ -31,16 +31,27 @@
           }
 
           .__detail-img-block {
-            @apply flex justify-center;
+            @apply flex flex-row flex-nowrap justify-evenly;
             .__detail-img {
-              @apply w-1/2 rounded-3xl;
+              @apply w-72 rounded-3xl;
             }
+          .__detail-text {
+            @apply flex flex-col flex-wrap justify-around;
+            .__detail {
+              @apply font-extrabold text-xl;
+              color: gold;
+            }
+            .__text {
+              @apply font-normal mt-2 text-white;
+            }
+          }
           }
 
           .__detail-text-block {
             @apply flex flex-wrap justify-around;
             .__detail {
-              @apply font-extrabold text-xl text-white;
+              @apply font-extrabold text-xl;
+              color: gold;
             }
             .__text {
               @apply font-normal text-white;

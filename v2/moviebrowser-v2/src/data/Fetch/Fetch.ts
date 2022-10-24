@@ -52,10 +52,10 @@ export async function search(target: string) {
   }
 }
 
-export async function getSeries(target: string) {
+export async function getSeries(target: string, page: number) {
   try {
     const series = await db.get(
-      `/tv/${target}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+      `/tv/${target}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`
     );
     return series.data.results;
   } catch (error) {

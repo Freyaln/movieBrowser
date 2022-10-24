@@ -9,10 +9,8 @@ interface IdParam {
 }
 
 export interface DatasModel {
-  [index: number]: {
     img: string;
     id: string;
-  };
 }
 
 export interface IListProps {
@@ -23,18 +21,18 @@ export interface IListProps {
 const ImageRow: FC<IListProps> = ({ className, datas }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [id, setId] = useState<string>('');
-  const imgPath = 'https://image.tmdb.org/t/p/w1280';
+  const imgPath = 'https://image.tmdb.org/t/p/w500/';
   return (
     <section className="__imageRow">
       {datas.map((items) => (
         <img
-          src={imgPath + items[0].img}
+          src={imgPath + items.img}
           key={uuidv4()}
           className={className}
           alt="movie poster"
           onClick={() => {
             setIsOpen(true);
-            setId(items[0].id);
+            setId(items.id);
           }}
         />
       ))}

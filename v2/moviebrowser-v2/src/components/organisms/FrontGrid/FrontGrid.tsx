@@ -19,32 +19,28 @@ const FrontGrid: FC = () => {
 
   useEffect(() => {
     const fetchPopular = getMovies('popular').then((fetchPopular) => {
-      setPopular(
-        fetchPopular.map((i: { id: string; poster_path: string }) => {
-          return [...popular, { id: i.id, img: i.poster_path }];
+        const values = fetchPopular.map((i: { id: string; poster_path: string }) => {
+            return { id: i.id, img: i.poster_path };
         })
-      );
+        setPopular(values);
     });
     const fetchTopRated = getMovies('top_rated').then((fetchTopRated) => {
-      setTopRated(
-        fetchTopRated.map((i: { id: string; poster_path: string }) => {
-          return [...topRated, { id: i.id, img: i.poster_path }];
-        })
-      );
+      const values = fetchTopRated.map((i: { id: string; poster_path: string }) => {
+        return { id: i.id, img: i.poster_path };
+      })
+      setTopRated(values);
     });
     const fetchUpcoming = getMovies('upcoming').then((fetchUpcoming) => {
-      setUpcoming(
-        fetchUpcoming.map((i: { id: string; poster_path: string }) => {
-          return [...upcoming, { id: i.id, img: i.poster_path }];
-        })
-      );
+      const values = fetchUpcoming.map((i: { id: string; poster_path: string }) => {
+        return { id: i.id, img: i.poster_path };
+      })
+      setUpcoming(values);
     });
     const fetchTheatres = getMovies('now_playing').then((fetchTheatres) => {
-      setTheatres(
-        fetchTheatres.map((i: { id: string; poster_path: string }) => {
-          return [...theatres, { id: i.id, img: i.poster_path }];
-        })
-      );
+      const values = fetchTheatres.map((i: { id: string; poster_path: string }) => {
+        return { id: i.id, img: i.poster_path };
+      })
+      setTheatres(values);
     });
     const fetchList = getBanner(1).then((fetchList) => {
       setListInfos(fetchList);

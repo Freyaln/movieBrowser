@@ -43,6 +43,8 @@ const Modal: FC<IModalProps> = ({ datas, title, isOpen, setIsOpen }) => {
     }
   }, [datas]);
 
+  console.log(movieDetail)
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="__modal-container" onClose={closeModal}>
@@ -89,36 +91,47 @@ const Modal: FC<IModalProps> = ({ datas, title, isOpen, setIsOpen }) => {
                     </Typo>
                     <section className="__detail-img-block">
                       <img src={imgPath + img} className="__detail-img" />
+                      <section className="__detail-text">
+                        <article>
+                          <Typo type={TextType.H2} className="__detail">
+                            Genres :
+                          </Typo>
+                          <ul className="__text">
+                            {movieDetail.map((i: DatasDetail) =>
+                              i.genres?.map((i) => {
+                                return <li key={uuidv4()}>{i.name}</li>;
+                              })
+                            )}
+                          </ul>
+                        </article>
+                        <article>
+                          <Typo type={TextType.H2} className="__detail">
+                            Runtime :
+                          </Typo>
+                          <Typo type={TextType.TEXT} className="__text">
+                            {movieDetail.map((i: DatasDetail) => minToHours(i.runtime))}
+                          </Typo>
+                        </article>
+                        <article>
+                          <Typo type={TextType.H2} className="__detail">
+                            Release date :
+                          </Typo>
+                          <Typo type={TextType.TEXT} className="__text">
+                            {movieDetail.map((i: DatasDetail) => i.release_date)}
+                          </Typo>
+                        </article>
+                        <article>
+                          <Typo type={TextType.H2} className="__detail">
+                            TMDb score :
+                          </Typo>
+                          <Typo type={TextType.TEXT} className="__text">
+                            {movieDetail.map((i: DatasDetail) => i.vote_average)}
+                          </Typo>
+                        </article>
+                        <article></article>
+                      </section>
                     </section>
                     <section className="__detail-text-block">
-                      <article>
-                        <Typo type={TextType.H2} className="__detail">
-                          Genres :
-                        </Typo>
-                        <ul className="__text">
-                          {movieDetail.map((i: DatasDetail) =>
-                            i.genres?.map((i) => {
-                              return <li key={uuidv4()}>{i.name}</li>;
-                            })
-                          )}
-                        </ul>
-                      </article>
-                      <article>
-                        <Typo type={TextType.H2} className="__detail">
-                          Runtime:
-                        </Typo>
-                        <Typo type={TextType.TEXT} className="__text">
-                          {movieDetail.map((i: DatasDetail) => minToHours(i.runtime))}
-                        </Typo>
-                      </article>
-                      <article>
-                        <Typo type={TextType.H2} className="__detail">
-                          Release date:
-                        </Typo>
-                        <Typo type={TextType.TEXT} className="__text">
-                          {movieDetail.map((i: DatasDetail) => i.release_date)}
-                        </Typo>
-                      </article>
                       <article>
                         <Typo type={TextType.H2} className="__detail">
                           Synopsys:
@@ -137,38 +150,40 @@ const Modal: FC<IModalProps> = ({ datas, title, isOpen, setIsOpen }) => {
                     </Typo>
                     <section className="__detail-img-block">
                       <img src={imgPath + img} className="__detail-img" />
+                      <section className="__detail-text">
+                        <article>
+                          <Typo type={TextType.H2} className="__detail">
+                            Genres :
+                          </Typo>
+                          <ul className="__text">
+                            {serieDetail.map((i: DatasDetail) =>
+                                i.genres?.map((i) => {
+                                  return <li key={uuidv4()}>{i.name}</li>;
+                                })
+                            )}
+                          </ul>
+                        </article>
+                        <Typo type={TextType.H2} className="__detail">
+                          Seasons :
+                        </Typo>
+                        <Typo type={TextType.TEXT} className="__text">
+                          {serieDetail.map((i: DatasDetail) => i.number_of_seasons)}
+                        </Typo>
+                        <Typo type={TextType.H2} className="__detail">
+                          Episodes :
+                        </Typo>
+                        <Typo type={TextType.TEXT} className="__text">
+                          {serieDetail.map((i: DatasDetail) => i.number_of_episodes)}
+                        </Typo>
+                        <Typo type={TextType.H2} className="__detail">
+                          Release date :
+                        </Typo>
+                        <Typo type={TextType.TEXT} className="__text">
+                          {serieDetail.map((i: DatasDetail) => i.first_air_date)}
+                        </Typo>
+                      </section>
                     </section>
                     <section className="__detail-text-block">
-                      <article>
-                        <Typo type={TextType.H2} className="__detail">
-                          Genres :
-                        </Typo>
-                        <ul className="__text">
-                          {serieDetail.map((i: DatasDetail) =>
-                            i.genres?.map((i) => {
-                              return <li key={uuidv4()}>{i.name}</li>;
-                            })
-                          )}
-                        </ul>
-                      </article>
-                      <Typo type={TextType.H2} className="__detail">
-                        Seasons:
-                      </Typo>
-                      <Typo type={TextType.TEXT} className="__text">
-                        {serieDetail.map((i: DatasDetail) => i.number_of_seasons)}
-                      </Typo>
-                      <Typo type={TextType.H2} className="__detail">
-                        Episodes:
-                      </Typo>
-                      <Typo type={TextType.TEXT} className="__text">
-                        {serieDetail.map((i: DatasDetail) => i.number_of_episodes)}
-                      </Typo>
-                      <Typo type={TextType.H2} className="__detail">
-                        Release date:
-                      </Typo>
-                      <Typo type={TextType.TEXT} className="__text">
-                        {serieDetail.map((i: DatasDetail) => i.first_air_date)}
-                      </Typo>
                       <Typo type={TextType.H2} className="__detail">
                         Synopsys:
                       </Typo>
