@@ -41,7 +41,7 @@ export async function getMoviesByGenre(target: number, page: number) {
   }
 }
 
-export async function search(target: string) {
+export async function searchMovie(target: string) {
   try {
     const search = await db.get(
       `/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${target}`

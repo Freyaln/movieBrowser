@@ -1,0 +1,10 @@
+.__main__search {
+  @apply flex flex-col items-center justify-center mt-5;
+}
+.__main__search .__searchbar {
+  @apply rounded-3xl p-3 w-full outline-none font-bold text-black;
+  border: 2px solid rgba(250, 98, 7, 0.6980392157);
+  height: 1.75rem;
+}
+
+/*# sourceMappingURL=Search.css.map */

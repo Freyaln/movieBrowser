@@ -83,6 +83,16 @@
         }
       }
     }
+    .__search {
+      @apply rounded-md px-4 py-2 text-xl font-medium text-white hover:underline underline-offset-4;
+      @media screen and (max-width: 530px){
+        @apply text-base;
+      }
+      @media screen and (min-width: 531px) and (max-width: 850px){
+        @apply text-base;
+      }
+    }
+
     .__series {
      @apply flex flex-col items-center justify-center gap-2 font-bold;
 

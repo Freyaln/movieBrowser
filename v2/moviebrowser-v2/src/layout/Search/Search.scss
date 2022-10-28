@@ -1,0 +1,9 @@
+.__main__search {
+  @apply flex flex-col items-center justify-center mt-5;
+
+  .__searchbar {
+    @apply rounded-3xl p-3 w-full outline-none font-bold text-black;
+    border: 2px solid #FA6207B2;
+    height: 1.75rem;
+  }
+}

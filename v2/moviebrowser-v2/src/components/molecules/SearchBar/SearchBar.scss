@@ -1,0 +1,8 @@
+.__wrapper {
+  @apply flex items-center justify-center w-1/2;
+  .__search__icon {
+    @apply text-xl;
+    color: #FA6207B2;
+    margin-left: 0.5rem;
+  }
+}
