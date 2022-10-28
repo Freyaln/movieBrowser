@@ -2,20 +2,37 @@
 
 .__header {
   @apply flex items-center w-full h-full justify-between;
+    @media screen and (max-width: 530px){
+      @apply flex flex-col;
+      width: 100%;
+    }
+
+    @media screen and (min-width: 531px) and (max-width: 850px){
+      @apply flex flex-col;
+      width: 100%;
+    }
 
   .__title-block {
     @apply flex items-center justify-start h-32 ml-10;
     width: 21rem;
+    @media screen and (max-width: 530px){
+      @apply h-10 justify-start ml-0;
+      width: 100%;
+    }
+    @media screen and (min-width: 531px) and (max-width: 850px){
+      @apply h-10 justify-start ml-0;
+      width: 100%;
+    }
 
     .__title-text {
       @apply font-bold text-3xl;
       pointer-events: none;
       @include typed((
               "This is a personnal test": (color: #FFF),
-              "not to clone Netflix": (color: #E50914),
-              "nor IMDb": (color: #f3ce13),
-              "but to challenge myself in many ways": (color: #FFF),
-              "to create a simple": (color: #FFF),
+              "Not to clone Netflix": (color: #E50914),
+              "Nor IMDb": (color: #f3ce13),
+              "But to challenge myself in many ways": (color: #FFF),
+              "To create a simple": (color: #FFF),
       ), 1.5,
               (
                       caret-speed: 2.5,
@@ -25,16 +42,37 @@
                       iterations: 1,
                       end-on: ("MovieBrowser": (color: #FA6207B2))
       ));
+      @media screen and (max-width: 530px){
+        @apply text-base mt-5;
+      }
+      @media screen and (min-width: 531px) and (max-width: 850px){
+        @apply text-lg mt-5;
+      }
     }
   }
   .__navbar {
     @apply flex flex-row justify-end items-center justify-end w-1/2 h-max mr-10;
+      @media screen and (max-width: 530px){
+        @apply h-10 justify-evenly mb-2.5 mt-2.5 mr-0;
+        width: 100%;
+      }
+
+      @media screen and (min-width: 531px) and (max-width: 850px){
+        @apply h-10 justify-evenly mb-2.5 mt-2.5 mr-0;
+        width: 100%;
+      }
 
     .__movies {
       @apply flex flex-col items-center justify-center gap-2 font-bold;
 
       .__navbar-button {
         @apply rounded-md px-4 py-2 text-xl font-medium text-white hover:underline underline-offset-4;
+          @media screen and (max-width: 530px){
+            @apply text-base;
+          }
+          @media screen and (min-width: 531px) and (max-width: 850px){
+            @apply text-base;
+          }
       }
 
       .__list {
@@ -50,6 +88,12 @@
 
       .__navbar-button {
         @apply rounded-md px-4 py-2 text-xl font-medium text-white hover:underline underline-offset-4;
+          @media screen and (max-width: 530px){
+            @apply text-base;
+          }
+          @media screen and (min-width: 531px) and (max-width: 850px){
+            @apply text-base;
+          }
       }
 
       .__list {

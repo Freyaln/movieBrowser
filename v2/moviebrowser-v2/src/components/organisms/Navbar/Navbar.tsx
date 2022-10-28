@@ -44,7 +44,6 @@ const Navbar: FC = () => {
           </Link>
         </div>
       </nav>
-      {/*<SearchBar className='__searchBar' value={searchDatas} onChange={(e) => handleChange(e)}/>*/}
     </header>
   );
 };
