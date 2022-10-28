@@ -44,9 +44,6 @@ const Banner: FC<IBannerProps> = ({ movie }) => {
                   <Typo type={TextType.TEXT} className="__title">
                     {banner.title}
                   </Typo>
-                  {/*<Typo type={TextType.TEXT} className="__text">*/}
-                  {/*  {banner.overview}*/}
-                  {/*</Typo>*/}
                 </>
               </div>
             </div>
