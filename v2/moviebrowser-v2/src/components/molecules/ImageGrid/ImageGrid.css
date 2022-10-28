@@ -9,6 +9,42 @@
   @apply grid grid-cols-5 grid-rows-4 gap-6 m-5 p-2 h-full;
   width: 95%;
 }
+@media screen and (max-width: 380px) {
+  .__imageGrid {
+    @apply grid grid-cols-2 gap-6 h-full;
+    width: 90%;
+  }
+}
+@media screen and (min-width: 381px) and (max-width: 530px) {
+  .__imageGrid {
+    @apply grid grid-cols-2 gap-6 h-full;
+    width: 93%;
+  }
+}
+@media screen and (min-width: 531px) and (max-width: 850px) {
+  .__imageGrid {
+    @apply grid grid-cols-3 gap-6 h-full;
+    width: 95%;
+  }
+}
+@media screen and (min-width: 851px) and (max-width: 1100px) {
+  .__imageGrid {
+    @apply grid grid-cols-4 gap-6 h-full;
+    width: 96%;
+  }
+}
+@media screen and (min-width: 1101px) and (max-width: 1920px) {
+  .__imageGrid {
+    @apply grid grid-cols-5 gap-6 h-full;
+    width: 97%;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .__imageGrid {
+    @apply grid grid-cols-7 gap-6 h-full;
+    width: 98%;
+  }
+}
 .__imageGrid::-webkit-scrollbar {
   width: 0.5rem;
   height: 0.5rem;
