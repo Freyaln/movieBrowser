@@ -74,7 +74,7 @@ const Modal: FC<IModalProps> = ({ datas, title, isOpen, setIsOpen }) => {
                 <Dialog.Title as="h3" className="__modal-content-title">
                   {title}
                 </Dialog.Title>
-                <section className="mt-2">
+                <section className="__modal-content-text-block">
                   {datas && datas.length > 10 && (
                     <Lists
                       datas={datas}

@@ -14,32 +14,80 @@
       .__modal-content-typo {
         @apply w-1/2 h-auto transform overflow-y-visible rounded-3xl p-6 text-center align-middle shadow-xl transition-all;
         background: rgba(21,20,31,1);
+          @media screen and (max-width: 380px){
+            @apply w-full;
+          }
+          @media screen and (min-width: 381px) and (max-width: 530px){
+            @apply w-full;
+          }
+          @media screen and (min-width: 531px) and (max-width: 1100px){
+            @apply w-full;
+          }
+          @media screen and (min-width: 1101px){
+            @apply text-2xl;
+          }
 
         .__modal-content-title {
           @apply text-2xl italic font-bold leading-10 text-white;
         }
 
-        .__modal-content-text {
-          @apply text-lg text-orange-700 font-bold leading-10;
+        .__modal-content-text-block {
+          @apply mt-5;
+          .__modal-content-text {
+            @apply text-lg text-orange-700 font-bold leading-10;
+          }
         }
-
         .__detail-block {
           @apply flex flex-col gap-10;
 
           .__detail-title {
             @apply font-bold text-3xl text-white;
+              @media screen and (max-width: 380px){
+                @apply text-base;
+              }
+              @media screen and (min-width: 381px) and (max-width: 530px){
+                @apply text-base;
+              }
+              @media screen and (min-width: 531px) and (max-width: 1100px){
+                @apply text-xl;
+              }
+              @media screen and (min-width: 1101px){
+                @apply text-2xl;
+              }
           }
 
           .__detail-img-block {
             @apply flex flex-row flex-nowrap justify-evenly;
+              @media screen and (max-width: 380px){
+                @apply flex-col gap-5;
+              }
+              @media screen and (min-width: 381px) and (max-width: 530px){
+                @apply flex-col gap-5;
+              }
             .__detail-img {
               @apply w-72 rounded-3xl;
+                @media screen and (min-width: 381px) and (max-width: 530px){
+                  @apply w-full;
+                }
             }
+
           .__detail-text {
             @apply flex flex-col flex-wrap justify-around;
             .__detail {
               @apply font-extrabold text-xl;
               color: gold;
+                @media screen and (max-width: 380px){
+                  @apply text-base;
+                }
+                @media screen and (min-width: 381px) and (max-width: 530px){
+                  @apply text-xl;
+                }
+                @media screen and (min-width: 531px) and (max-width: 1100px){
+                  @apply text-2xl;
+                }
+                @media screen and (min-width: 1101px){
+                  @apply text-2xl;
+                }
             }
             .__text {
               @apply font-normal mt-2 text-white;
@@ -49,6 +97,18 @@
 
           .__detail-text-block {
             @apply flex flex-wrap justify-around;
+              @media screen and (max-width: 380px){
+                @apply text-base;
+              }
+              @media screen and (min-width: 381px) and (max-width: 530px){
+                @apply text-xl;
+              }
+              @media screen and (min-width: 531px) and (max-width: 1100px){
+                @apply text-xl;
+              }
+              @media screen and (min-width: 1101px){
+                @apply text-2xl;
+              }
             .__detail {
               @apply font-extrabold text-xl;
               color: gold;
